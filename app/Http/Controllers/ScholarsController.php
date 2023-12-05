@@ -3,16 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Scholarships;
 
-class StudentsController extends Controller
+class ScholarsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin.add-scholar');
+        return view('admin.scholars');
     }
 
     /**
