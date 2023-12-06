@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ScholarsController;
 use App\Http\Controllers\StudentsController;
+use App\Http\Controllers\ScholarshipController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +33,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/scholars/{id}', [StudentsController::class, 'show'])->name('view-scholar');
     Route::get('/add-scholars', [StudentsController::class, 'index'])->name('admin.add-scholar');
     Route::post('/add-scholars', [StudentsController::class, 'store'])->name('admin.store-scholar');
+    Route::get('/SAGAP/scholars', [ScholarshipController::class, 'sagap'])->name('sagap');
+    Route::get('/Sunlife/scholars', [ScholarshipController::class, 'sunlife'])->name('sunlife');
+    Route::get('/SM/scholars', [ScholarshipController::class, 'sm'])->name('sm');
+    Route::get('/CHED/scholars', [ScholarshipController::class, 'sm'])->name('ched');
+    Route::get('/TES/scholars', [ScholarshipController::class, 'sm'])->name('tes');
+    Route::get('/TESDA/scholars', [ScholarshipController::class, 'sm'])->name('tesda');
+
 });
 
 require __DIR__.'/auth.php';

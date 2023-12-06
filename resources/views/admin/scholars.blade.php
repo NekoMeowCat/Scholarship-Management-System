@@ -10,8 +10,7 @@
                     <div class="border border-black h-screen w-full mt-4">
                         <x-scholars-table></x-scholars-table>
                     </div>
-                </div>
-                
+                </div>               
             </div>           
         </section>       
     </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Scholarships;
 
 class ScholarshipController extends Controller
 {
@@ -11,7 +12,37 @@ class ScholarshipController extends Controller
      */
     public function index()
     {
-        //
+        
+    }
+
+    public function sagap()
+    {
+        return view('admin.sagap');
+    }
+
+    public function sunlife()
+    {
+        return view('admin.sunlife');
+    }
+
+    public function sm()
+    {
+        return view('admin.sm');
+    }
+
+    public function ched()
+    {
+        return view('admin.ched');
+    }
+
+    public function tes()
+    {
+        return view('admin.tes');
+    }
+
+    public function tesda()
+    {
+        return view('admin.tesda');
     }
 
     /**

@@ -93,7 +93,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($students as $student)
+                        @foreach ($Students as $student)
                             <tr class="border-b dark:border-gray-700 cursor-pointer" onclick="window.location='{{ route('view-scholar', ['id' => $student->id]) }}';">
                                 <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     {{ $student->name }}    
