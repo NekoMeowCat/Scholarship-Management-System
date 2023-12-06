@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class ScholarsController extends Controller
 {
     /**
@@ -35,7 +36,7 @@ class ScholarsController extends Controller
      */
     public function show(string $id)
     {
-        //
+        
     }
 
     /**

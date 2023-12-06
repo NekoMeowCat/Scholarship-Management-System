@@ -92,76 +92,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="border-b dark:border-gray-700">
-                            <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">Apple iMac 27&#34;</th>
-                            <td class="px-4 py-3">PC</td>
-                            <td class="px-4 py-3">Apple</td>
-                            <td class="px-4 py-3">300</td>
-                            <td class="px-4 py-3">$2999</td>
-                        </tr>
-                        <tr class="border-b dark:border-gray-700">
-                            <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">Apple iMac 20&#34;</th>
-                            <td class="px-4 py-3">PC</td>
-                            <td class="px-4 py-3">Apple</td>
-                            <td class="px-4 py-3">200</td>
-                            <td class="px-4 py-3">$1499</td>
-                        </tr>
-                        <tr class="border-b dark:border-gray-700">
-                            <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">Apple iPhone 14</th>
-                            <td class="px-4 py-3">Phone</td>
-                            <td class="px-4 py-3">Apple</td>
-                            <td class="px-4 py-3">1237</td>
-                            <td class="px-4 py-3">$999</td>
-                        </tr>
-                        <tr class="border-b dark:border-gray-700">
-                            <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">Apple iPad Air</th>
-                            <td class="px-4 py-3">Tablet</td>
-                            <td class="px-4 py-3">Apple</td>
-                            <td class="px-4 py-3">4578</td>
-                            <td class="px-4 py-3">$1199</td>
-                        </tr>
-                        <tr class="border-b dark:border-gray-700">
-                            <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">Xbox Series S</th>
-                            <td class="px-4 py-3">Gaming/Console</td>
-                            <td class="px-4 py-3">Microsoft</td>
-                            <td class="px-4 py-3">56</td>
-                            <td class="px-4 py-3">$299</td>
-                        </tr>
-                        <tr class="border-b dark:border-gray-700">
-                            <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">PlayStation 5</th>
-                            <td class="px-4 py-3">Gaming/Console</td>
-                            <td class="px-4 py-3">Sony</td>
-                            <td class="px-4 py-3">78</td>
-                            <td class="px-4 py-3">$799</td>
-                        </tr>
-                        <tr class="border-b dark:border-gray-700">
-                            <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">Xbox Series X</th>
-                            <td class="px-4 py-3">Gaming/Console</td>
-                            <td class="px-4 py-3">Microsoft</td>
-                            <td class="px-4 py-3">200</td>
-                            <td class="px-4 py-3">$699</td>
-                        </tr>
-                        <tr class="border-b dark:border-gray-700">
-                            <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">Apple Watch SE</th>
-                            <td class="px-4 py-3">Watch</td>
-                            <td class="px-4 py-3">Apple</td>
-                            <td class="px-4 py-3">657</td>
-                            <td class="px-4 py-3">$399</td>
-                        </tr>
-                        <tr class="border-b dark:border-gray-700">
-                            <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">NIKON D850</th>
-                            <td class="px-4 py-3">Photo</td>
-                            <td class="px-4 py-3">Nikon</td>
-                            <td class="px-4 py-3">465</td>
-                            <td class="px-4 py-3">$599</td>
-                        </tr>
-                        <tr class="border-b dark:border-gray-700">
-                            <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">Monitor BenQ EX2710Q</th>
-                            <td class="px-4 py-3">TV/Monitor</td>
-                            <td class="px-4 py-3">BenQ</td>
-                            <td class="px-4 py-3">354</td>
-                            <td class="px-4 py-3">$499</td>
-                        </tr>
+                        @foreach ($students as $student)
+                            <tr class="border-b dark:border-gray-700 cursor-pointer" onclick="window.location='{{ route('view-scholar', ['id' => $student->id]) }}';">
+                                <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    {{ $student->name }}    
+                                    {{ $student->middle_name }}    
+                                    {{ $student->last_name }}    
+                                </th>
+                                <td class="px-4 py-3">{{ $student->id_number }}</td>
+                                <td class="px-4 py-3">{{ $student->course }}</td>
+                                <td class="px-4 py-3">{{ $student->scholarship->name }}</td>
+                                <td class="px-4 py-3">{{ $student->department->name }}</td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

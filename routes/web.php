@@ -29,7 +29,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/scholars', [ScholarsController::class, 'index'])->name('admin.scholars');
+    Route::get('/scholars/{id}', [StudentsController::class, 'show'])->name('view-scholar');
     Route::get('/add-scholars', [StudentsController::class, 'index'])->name('admin.add-scholar');
+    Route::post('/add-scholars', [StudentsController::class, 'store'])->name('admin.store-scholar');
 });
 
 require __DIR__.'/auth.php';

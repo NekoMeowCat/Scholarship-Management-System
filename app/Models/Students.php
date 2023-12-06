@@ -35,7 +35,7 @@ class Students extends Model
 
     public function scholarDetails()
     {
-        return $this->hasOne(ScholarDetails::class);
+        return $this->hasOne(ScholarDetails::class, 'student_id', 'id');
     }
 
     public function attachments()
