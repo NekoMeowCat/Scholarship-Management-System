@@ -14,6 +14,7 @@ class ScholarDetails extends Model
         'date_of_birth',
         'phone_number',
         'address',
+        'graduated_at',
         'contact_person',
         'contact_person_number',
         'graduated_at',

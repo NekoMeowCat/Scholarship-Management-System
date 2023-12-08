@@ -36,9 +36,9 @@ class StudentsController extends Controller
     public function activityLog()
     {
         
-        $activityLogs = Activity::all(); // Assuming Activity is the model for your activity logs
+        $activityLogs = Activity::paginate(10); // Assuming Activity is the model for your activity logs
 
-    return view('admin.activity-logs', compact('activityLogs'));
+        return view('admin.activity-logs', compact('activityLogs'));
     }
 
     /**
@@ -160,13 +160,13 @@ class StudentsController extends Controller
             'course' => 'required|string',
             'email' => 'required|email',
             'date_of_birth' => 'required|date',
+            'graduated_at' => 'nullable|date',
             'scholarship_id' => 'nullable|exists:scholarships,id',
             'department_id' => 'nullable|exists:departments,id',
             'phone_number' => 'required|string',
             'address' => 'required|string',
             'contact_person' => 'required|string',
-            'contact_person_number' => 'required|string',
-            
+            'contact_person_number' => 'required|string',           
         ]);
 
         $student = Students::findOrFail($id);
