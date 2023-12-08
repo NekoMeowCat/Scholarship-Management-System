@@ -5,6 +5,7 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use App\Models\Students;
 
 class chedTable extends Component
 {
@@ -15,9 +16,9 @@ class chedTable extends Component
 
     public function __construct()
     {
-        $this->Students = Students::whereHas('scholarship', function ($query) {
+        $this->students = Students::whereHas('scholarship', function ($query) {
             $query->where('name', 'CHED');
-        })->get();
+        })->orderBy('year_level', 'desc')->get();
     }
 
     /**

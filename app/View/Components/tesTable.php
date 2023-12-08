@@ -17,9 +17,9 @@ class tesTable extends Component
 
     public function __construct()
     {
-        $this->Students = Students::whereHas('scholarship', function ($query) {
+        $this->students = Students::whereHas('scholarship', function ($query) {
             $query->where('name', 'TES');
-        })->get();
+        })->orderBy('year_level', 'desc')->get();
     }
 
     /**

@@ -20,7 +20,7 @@ class sagapTable extends Component
     {
         $this->Students = Students::whereHas('scholarship', function ($query) {
             $query->where('name', 'SAGAP');
-        })->get();
+        })->orderBy('year_level', 'desc')->get();
     }
 
     /**

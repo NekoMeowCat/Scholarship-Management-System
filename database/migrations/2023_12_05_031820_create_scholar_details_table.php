@@ -17,6 +17,7 @@ return new class extends Migration
             $table->date('date_of_birth');
             $table->string('phone_number');
             $table->string('address');
+            $table->date('graduated_at')->nullable();
             $table->string('contact_person');
             $table->string('contact_person_number');
             $table->timestamps();

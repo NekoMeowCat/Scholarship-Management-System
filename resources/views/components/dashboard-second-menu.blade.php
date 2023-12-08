@@ -1,25 +1,7 @@
-<div class="rounded-md bg-white h-96 drop-shadow-lg">
-    <div class="flex justify-between m-8">
-        <div class="text-gray-700">
-            <span class="text-2xl tracking-tight font-semibold font-poppins">Sales Analytics</span>
-        </div>
-        <div class="font-poppins">
-            <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-600 text-sm tracking-tight rounded-lg block w-full p-2.5 ">
-                <option selected>This Month</option>
-                <option value="US">United States</option>
-                <option value="CA">Canada</option>
-                <option value="FR">France</option>
-            </select>
-        </div>
-    </div>
-    <div class="p-4 h-72">
-        <canvas id="lineChart"></canvas>
-    </div>
-    <div class="font-semibold tracking-tight h-20 flex items-center bg-white rounded-md">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-orange-500 ml-3">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-2.25-1.313M21 7.5v2.25m0-2.25l-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3l2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75l2.25-1.313M12 21.75V19.5m0 2.25l-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25" />
-        </svg>
-        <span class="text-3xl font-oxygen uppercase flex items-center text-indigo-800 ml-2">Latest Transaction</span>   
+<div class="rounded-md bg-white h-auto drop-shadow-lg">
+    <div class="block m-2 rounded-sm bg-white">
+        <div class="">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi asperiores rem magni voluptates voluptatem, voluptatum sequi eligendi temporibus exercitationem deserunt?</div>   
+        <div inline-datepicker data-date="02/25/2022"></div>
     </div>
 </div>
 <div class="bg-white rounded-md drop-shadow-lg">
@@ -76,4 +58,5 @@
             </div>
         </div>              
     </div>
-</div>      
+</div>     
+ 

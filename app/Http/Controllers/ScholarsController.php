@@ -15,6 +15,16 @@ class ScholarsController extends Controller
         return view('admin.scholars');
     }
 
+    public function verifiedScholars()
+    {
+        return view('admin.verified-scholars');
+    }
+
+    public function unverifiedScholars()
+    {
+        return view('admin.unverified-scholars');
+    }
+
     /**
      * Show the form for creating a new resource.
      */

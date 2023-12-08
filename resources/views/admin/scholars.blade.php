@@ -1,17 +1,17 @@
 <x-app-layout>
-    <div class="min-h-screen max-w-screen overflow-x-scroll z-40">
+    <div class="max-w-screen z-40 min-h-screen overflow-x-scroll">
         <section class="flex">
             <x-sidebar></x-sidebar>
-            <div class="w-full items-center">
-                <div class="m-8 bg-blue-500 min-h-screen block">
-                    <div class="h-auto w-full">
-                        <img src="{{ asset('storage/images/chedar.png') }}" alt="" class="pt-4">
+            <div class="w-full items-center rounded-md">
+                <div class="m-4 block rounded-md bg-[#113946] shadow-2xl">
+                    <div class="h-auto w-full p-2">
+                        <img src="{{ asset('storage/images/chedar.png') }}" alt="" class="m-4 h-64">
                     </div>
-                    <div class="border border-black h-screen w-full mt-4">
-                        <x-scholars-table></x-scholars-table>
-                    </div>
-                </div>               
-            </div>           
-        </section>       
+                </div>
+                <div class="m-4 rounded-md shadow-2xl">
+                    <x-scholars-table></x-scholars-table>
+                </div>
+            </div>
+        </section>
     </div>
 </x-app-layout>

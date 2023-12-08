@@ -17,7 +17,7 @@ class scholarsTable extends Component
 
     public function __construct()
     {
-        $this->students = Students::all();
+        $this->students = Students::paginate(10);
     }
 
     /**

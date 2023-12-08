@@ -5,15 +5,18 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use App\Models\Students;
 
-class dashboard-first-menu extends Component
+class unverifiedScholarsTable extends Component
 {
     /**
      * Create a new component instance.
      */
+    public $students;
+
     public function __construct()
     {
-        //
+        $this->students = Students::where('status', 'not_verified')->paginate(10);
     }
 
     /**
@@ -21,6 +24,6 @@ class dashboard-first-menu extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.dashboard-first-menu');
+        return view('components.unverified-scholars-table');
     }
 }

@@ -17,9 +17,10 @@ class tesdaTable extends Component
 
     public function __construct()
     {
-        $this->Students = Students::whereHas('scholarship', function ($query) {
+        $this->students = Students::whereHas('scholarship', function ($query) {
             $query->where('name', 'TESDA');
-        })->get();
+        })->orderBy('year_level', 'desc')->get();
+
     }
 
     /**

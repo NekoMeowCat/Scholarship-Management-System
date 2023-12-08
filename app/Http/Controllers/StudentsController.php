@@ -3,11 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Events\UserActivityEvent;
 use App\Models\Scholarships;
 use App\Models\Students;
 use App\Models\Departments;
 use App\Models\ScholarDetails;
 use App\Models\Attachments;
+
+
+
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Activitylog\Models\Activity;
+
+
+
+
 
 class StudentsController extends Controller
 {
@@ -22,9 +33,12 @@ class StudentsController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function activityLog()
     {
-        //
+        
+        $activityLogs = Activity::all(); // Assuming Activity is the model for your activity logs
+
+    return view('admin.activity-logs', compact('activityLogs'));
     }
 
     /**
@@ -66,6 +80,7 @@ class StudentsController extends Controller
     
 
         $departmentId = $request->input('department_id');
+        $user = auth()->user();
         $student = Students::create([
             'name' => $request->input('name'),
             'middle_name' => $request->input('middle_name'),
@@ -98,6 +113,13 @@ class StudentsController extends Controller
         }
 
         $attachment->save();
+        
+
+        activity('students')
+            ->performedOn($student)
+            ->causedBy(auth()->user())
+            ->log('Student created');
+
 
         return redirect()->route('admin.scholars');
     }
@@ -127,7 +149,45 @@ class StudentsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'status' => 'required|in:verified,not_verified,graduated',
+            'name' => 'required|string',
+            'middle_name' => 'string',
+            'last_name' => 'required|string',
+            'id_number' => 'required|string',
+            'year_level' => 'required|string',
+            'gender' => 'required|string',
+            'course' => 'required|string',
+            'email' => 'required|email',
+            'date_of_birth' => 'required|date',
+            'scholarship_id' => 'nullable|exists:scholarships,id',
+            'department_id' => 'nullable|exists:departments,id',
+            'phone_number' => 'required|string',
+            'address' => 'required|string',
+            'contact_person' => 'required|string',
+            'contact_person_number' => 'required|string',
+            
+        ]);
+
+        $student = Students::findOrFail($id);
+
+        $oldAttributes = $student->getOriginal();
+
+        $student->update($request->all());
+
+        $newAttributes = $student->fresh()->getAttributes();
+
+        $updatedFields = array_diff_assoc($newAttributes, $oldAttributes);
+
+        if (!empty($updatedFields)) {
+            activity('students')
+                ->performedOn($student)
+                ->causedBy(auth()->user())
+                ->withProperties(['updated_fields' => $updatedFields])
+                ->log('Student updated');
+
+        }
+        return redirect()->back();
     }
 
     /**

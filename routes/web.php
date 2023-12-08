@@ -36,10 +36,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/SAGAP/scholars', [ScholarshipController::class, 'sagap'])->name('sagap');
     Route::get('/Sunlife/scholars', [ScholarshipController::class, 'sunlife'])->name('sunlife');
     Route::get('/SM/scholars', [ScholarshipController::class, 'sm'])->name('sm');
-    Route::get('/CHED/scholars', [ScholarshipController::class, 'sm'])->name('ched');
-    Route::get('/TES/scholars', [ScholarshipController::class, 'sm'])->name('tes');
-    Route::get('/TESDA/scholars', [ScholarshipController::class, 'sm'])->name('tesda');
+    Route::get('/CHED/scholars', [ScholarshipController::class, 'ched'])->name('ched');
+    Route::get('/TES/scholars', [ScholarshipController::class, 'tes'])->name('tes');
+    Route::get('/TESDA/scholars', [ScholarshipController::class, 'tesda'])->name('tesda');
+    Route::put('/students/{student}', [StudentsController::class, 'update'])->name('students.update');
+    Route::get('/Scholars/Verified', [ScholarsController::class, 'verifiedScholars'])->name('verified.scholars');
+    Route::get('/Scholars/Unverified', [ScholarsController::class, 'unverifiedScholars'])->name('unverified.scholars');
 
+    Route::get('/activity-logs', [StudentsController::class, 'activityLog'])->name('activity-logs');
 });
 
 require __DIR__.'/auth.php';

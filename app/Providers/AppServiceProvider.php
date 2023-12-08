@@ -3,6 +3,10 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\View\Components\DashboardFirstMenu;
+use Illuminate\Support\Facades\Blade;
+use App\Models\Students;
+use App\Observers\UserActivityObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +23,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Students::observe(UserActivityObserver::class);
     }
 }

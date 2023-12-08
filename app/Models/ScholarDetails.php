@@ -16,6 +16,7 @@ class ScholarDetails extends Model
         'address',
         'contact_person',
         'contact_person_number',
+        'graduated_at',
     ];
 
     public function student()

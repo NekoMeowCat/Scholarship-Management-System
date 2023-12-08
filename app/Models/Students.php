@@ -4,23 +4,24 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Activitylog\Facades\Activity;
+
+
 
 class Students extends Model
 {
-    use HasFactory;
+    use HasFactory, LogsActivity;
 
     protected $fillable = [
-        'name',
-        'middle_name',
-        'last_name',
-        'id_number',
-        'year_level',
-        'gender',
-        'course',
-        'email',
-        'status',
-        'department_id',
-        'scholarship_id',
+        'name', 'middle_name', 'last_name', 'year_level', 'id_number', 'gender', 'course', 'email',
+        'department_id', 'scholarship_id',
+    ];
+
+    protected static $logAttributes = [
+        'name', 'middle_name', 'last_name', 'year_level', 'id_number', 'gender', 'course', 'email',
+        'department_id', 'scholarship_id',
     ];
 
     public function department()
@@ -41,5 +42,12 @@ class Students extends Model
     public function attachments()
     {
         return $this->hasMany(Attachments::class);
+    }
+
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logOnly(['name', 'middle_name', 'last_name', 'year_level', 'id_number', 'gender', 'course', 'email', 'department_id', 'scholarship_id']);
     }
 }
