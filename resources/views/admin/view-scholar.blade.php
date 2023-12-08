@@ -39,16 +39,20 @@
                         </ul>
                     </div>
                 @endif
+                @error('status')
+    <span class="text-red-500">{{ $message }}</span>
+@enderror
+
                 <form action="{{ route('students.update', ['student' => $student->id]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="bg-gray-100 my-2 rounded-md shadow-2xl">
                         <div class="w-full flex bg-gray-100 justify-start lg:justify-end p-4">
-                        <select name="status" id="status" class="py-3 px-4 pe-9 block text-black border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
-                            <option value="verified" {{ $student->status === 'verified' ? 'selected' : '' }}>Verified</option>
-                            <option value="not_verified" {{ $student->status === 'not_verified' ? 'selected' : '' }}>Not Verified</option>
-                            <option value="graduated" {{ $student->status === 'graduated' ? 'selected' : '' }}>Graduated</option>
-                        </select>
+                            <select name="status" id="status" class="py-3 px-4 pe-9 block text-black border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
+                                <option value="verified" {{ $student->status === 'verified' ? 'selected' : '' }}>Verified</option>
+                                <option value="not_verified" {{ $student->status === 'not_verified' ? 'selected' : '' }}>Not Verified</option>
+                                <option value="graduated" {{ $student->status === 'graduated' ? 'selected' : '' }}>Graduated</option>
+                            </select>
                         </div>  
                         <div class="block md:flex bg-gray-100 min-h-screen s">
                             <div class="p-10 flex justify-center items-center md:items-start">

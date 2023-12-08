@@ -15,12 +15,12 @@ class Students extends Model
     use HasFactory, LogsActivity;
 
     protected $fillable = [
-        'name', 'middle_name', 'last_name', 'year_level', 'id_number', 'gender', 'course', 'email',
+        'name', 'middle_name', 'last_name', 'year_level', 'status', 'id_number', 'gender', 'course', 'email',
         'department_id', 'scholarship_id',
     ];
 
     protected static $logAttributes = [
-        'name', 'middle_name', 'last_name', 'year_level', 'id_number', 'gender', 'course', 'email',
+        'name', 'middle_name', 'last_name', 'year_level', 'status', 'id_number', 'gender', 'course', 'email',
         'department_id', 'scholarship_id',
     ];
 

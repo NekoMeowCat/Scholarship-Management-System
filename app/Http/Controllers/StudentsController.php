@@ -118,7 +118,7 @@ class StudentsController extends Controller
         activity('students')
             ->performedOn($student)
             ->causedBy(auth()->user())
-            ->log('Student created');
+            ->log('Created Student');
 
 
         return redirect()->route('admin.scholars');
@@ -171,12 +171,13 @@ class StudentsController extends Controller
 
         $student = Students::findOrFail($id);
 
+        $student->update($request->except('graduated_at'));
+
+        $student->scholarDetails->update(['graduated_at' => $request->graduated_at]);
+
+        
         $oldAttributes = $student->getOriginal();
-
-        $student->update($request->all());
-
         $newAttributes = $student->fresh()->getAttributes();
-
         $updatedFields = array_diff_assoc($newAttributes, $oldAttributes);
 
         if (!empty($updatedFields)) {
@@ -184,7 +185,7 @@ class StudentsController extends Controller
                 ->performedOn($student)
                 ->causedBy(auth()->user())
                 ->withProperties(['updated_fields' => $updatedFields])
-                ->log('Student updated');
+                ->log('Updated Student');
 
         }
         return redirect()->back();
