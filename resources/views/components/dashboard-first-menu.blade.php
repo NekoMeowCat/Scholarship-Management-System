@@ -87,20 +87,20 @@
             </div>                                                         
         </div>
         <div class="font-poppins mt-4 ml-4 text-2xl font-semibold tracking-tight text-gray-800">
-            3.456K
+            
         </div>
         <div class="flex justify-between mx-4">
             <div class="text-gray-400">
                 <span class="text-sm tracking-tight font-poppins">Total Admins</span>
             </div>
-            <div class="flex items-center font-normal text-green-500"> <!-- Add this container div -->
+            <!-- <div class="flex items-center font-normal text-green-500">  Add this container div
                 <span class="text-sm tracking-tight font-poppins">
-                    0.43% 
+                    0.43%  
                 </span>
                 <svg class="w-3 h-3 mb-0 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13V1m0 0L1 5m4-4 4 4"/>
                 </svg>
-            </div>
+            </div> -->
         </div>   
     </div>
 </div>

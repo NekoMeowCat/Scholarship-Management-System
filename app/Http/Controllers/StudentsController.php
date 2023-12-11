@@ -186,8 +186,8 @@ class StudentsController extends Controller
                 ->causedBy(auth()->user())
                 ->withProperties(['updated_fields' => $updatedFields])
                 ->log('Updated Student');
-
         }
+        
         return redirect()->back();
     }
 

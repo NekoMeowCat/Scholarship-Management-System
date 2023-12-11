@@ -18,12 +18,12 @@
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-100 uppercase bg-[#164863] ">
                         <tr>
-                            <th scope="col" class="px-4 py-3">Student</th>
+                            <th scope="col" class="px-4 py-3">Name</th>
                             <th scope="col" class="px-4 py-3">ID Number</th>
+                            <th scope="col" class="px-4 py-3">Scholarship</th>
                             <th scope="col" class="px-4 py-3">Course</th>
-                            <th scope="col" class="px-4 py-3">Scholar Type</th>
+                            <th scope="col" class="px-4 py-3">Year level</th>
                             <th scope="col" class="px-4 py-3">Office Assign</th>
-                            <th scope="col" class="px-4 py-3">Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,19 +35,10 @@
                                     {{ $student->last_name }}    
                                 </th>
                                 <td class="px-4 py-3">{{ $student->id_number }}</td>
+                                <td class="px-4 py-3"> {{ $student->scholarship->name }}</td>
                                 <td class="px-4 py-3">{{ $student->course }}</td>
-                                <td class="px-4 py-3">{{ $student->scholarship->name }}</td>
-                                <td class="px-4 py-3">{{ $student->department->name }}</td>
-                                <td class="px-4 py-3 block md:flex gap-x-2">
-                                    @if ($student->status == 'not_verified')
-                                        <img src="{{ asset('storage/images/check.png') }}" alt="Not Verified" class="ml-2 h-4 w-4">
-                                    @elseif ($student->status == 'verified')
-                                        <img src="{{ asset('storage/images/approved.png') }}" alt="Verified" class="ml-2 h-6 w-6">
-                                    @elseif ($student->status == 'graduated')
-                                        <img src="{{ asset('storage/images/cap.png') }}" alt="Verified" class="ml-2 h-6 w-6">
-                                    @endif
-                                        {{ $student->status }}
-                                </td>
+                                <td class="px-4 py-3">{{ $student->year_level }}</td>
+                                <td class="px-4 py-3 block md:flex gap-x-2">{{ $student->department->name }}</td>
                             </tr>
                         @endforeach
                     </tbody>

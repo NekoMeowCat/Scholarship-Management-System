@@ -9,9 +9,9 @@
                     </div>
                 </div>
                 <div class="bg-white rounded-md shadow-2xl m-4">
-                    <div class="overflow-x-auto rounded-md">
+                    <div class="overflow-x-auto ">
                         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                            <thead class="text-sm text-gray-100 uppercase bg-[#164863]">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
                                     <th scope="col" class="px-4 py-3">User</th>
                                     <th scope="col" class="px-4 py-3">Action</th>
@@ -30,9 +30,14 @@
                                         <td class="px-4 py-3 text-gray-600">{{ $log->subject_id }}</td>
                                         <td class="px-4 py-3 text-gray-600">{{ $log->created_at->format('Y-m-d H:i:s') }}</td>
                                         <td>
-                                            @if ($log->properties->has('updated_fields'))
-                                                @foreach ($log->properties['updated_fields'] as $field => $value)
-                                                    <strong>{{ $field }}:</strong> {{ $value }}<br>
+                                            @if ($log->properties->has('old') && $log->properties->has('attributes'))
+                                                @foreach ($log->properties['old'] as $field => $oldValue)
+                                                    @php
+                                                        $newValue = $log->properties['attributes'][$field] ?? null;
+                                                    @endphp
+                                                    @if ($oldValue !== $newValue)
+                                                        <strong>{{ $field }}:</strong> {{ $oldValue }} changed to {{ $newValue }}<br>
+                                                    @endif
                                                 @endforeach
                                             @else
                                                 No updated fields

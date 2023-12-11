@@ -48,6 +48,6 @@ class Students extends Model
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()
-            ->logOnly(['name', 'middle_name', 'last_name', 'year_level', 'id_number', 'gender', 'course', 'email', 'department_id', 'scholarship_id']);
+            ->logOnly(['name', 'middle_name', 'last_name', 'year_level', 'id_number', 'status', 'gender', 'course', 'email', 'department_id', 'scholarship_id']);
     }
 }

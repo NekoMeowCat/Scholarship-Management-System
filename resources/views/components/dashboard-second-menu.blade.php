@@ -1,11 +1,13 @@
 <div class="rounded-md bg-white h-auto shadow-xl">
     <div class="block m-2 rounded-sm">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-2 md:m-14">
-            <div class="rounded-md bg-gray-50 shadow-indigo-700/50 h-48 shadow-2xl">
-                <div class="flex justify-center items-center h-full">
-                    <img src="{{ asset('storage/images/yes.png') }}" alt="" class="">
+            <a href="{{ route('sagap') }}" class="">
+                <div class="rounded-md bg-gray-50 shadow-indigo-700/50 h-48 shadow-2xl">
+                    <div class="flex justify-center items-center h-full">
+                        <img src="{{ asset('storage/images/yes.png') }}" alt="" class="">
+                    </div>
                 </div>
-            </div>
+            </a>
             <div class="rounded-md bg-gray-50 shadow-indigo-700/50 h-48 shadow-2xl">
                 <div class="flex justify-center items-center h-full">
                     <img src="{{ asset('storage/images/cc.png') }}" alt="" class="h-36">
