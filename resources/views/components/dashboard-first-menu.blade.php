@@ -91,7 +91,7 @@
         </div>
         <div class="flex justify-between mx-4">
             <div class="text-gray-400">
-                <span class="text-sm tracking-tight font-poppins">Total Users</span>
+                <span class="text-sm tracking-tight font-poppins">Total Admins</span>
             </div>
             <div class="flex items-center font-normal text-green-500"> <!-- Add this container div -->
                 <span class="text-sm tracking-tight font-poppins">

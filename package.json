@@ -16,7 +16,10 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@fullcalendar/core": "^6.1.10",
+        "@fullcalendar/daygrid": "^6.1.10",
         "flowbite": "^2.2.0",
+        "fullcalendar": "^6.1.10",
         "preline": "^2.0.2"
     }
 }

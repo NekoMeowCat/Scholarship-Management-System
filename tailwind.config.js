@@ -14,7 +14,19 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                zilla: ['Zilla Slab'],
+                figtree: ['Figtree'],
+                bebas: ['Bebas Neue'],
+                borel: ['Borel'],
+                comforta: ['Comfortaa'],
+                dmserif: ['DM Serif'],
+                inter: ['Inter'],
+                montserrat: ['Montserrat'],
+                nunito: ['Nunito Sans'],
+                oxygen: ['Oxygen'],
+                poppins: ['Poppins'],
+                raleway: ['Raleway'],
+                roboto: ['Roboto'],
             },
         },
     },

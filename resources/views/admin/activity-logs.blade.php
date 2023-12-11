@@ -9,9 +9,9 @@
                     </div>
                 </div>
                 <div class="bg-white rounded-md shadow-2xl m-4">
-                    <div class="overflow-x-auto ">
+                    <div class="overflow-x-auto rounded-md">
                         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <thead class="text-sm text-gray-100 uppercase bg-[#164863]">
                                 <tr>
                                     <th scope="col" class="px-4 py-3">User</th>
                                     <th scope="col" class="px-4 py-3">Action</th>
@@ -24,11 +24,11 @@
                             <tbody>
                                 @foreach($activityLogs as $log)
                                     <tr class="border">
-                                        <td class="px-4 py-3">{{ $log->causer->name }}</td>
-                                        <td class="px-4 py-3">{{ $log->description }}</td>
-                                        <td class="px-4 py-3">{{ $log->subject_type }}</td>
-                                        <td class="px-4 py-3">{{ $log->subject_id }}</td>
-                                        <td class="px-4 py-3">{{ $log->created_at->format('Y-m-d H:i:s') }}</td>
+                                        <td class="px-4 py-3 text-gray-600">{{ $log->causer->name }}</td>
+                                        <td class="px-4 py-3 text-gray-600">{{ $log->description }}</td>
+                                        <td class="px-4 py-3 text-gray-600">{{ $log->subject_type }}</td>
+                                        <td class="px-4 py-3 text-gray-600">{{ $log->subject_id }}</td>
+                                        <td class="px-4 py-3 text-gray-600">{{ $log->created_at->format('Y-m-d H:i:s') }}</td>
                                         <td>
                                             @if ($log->properties->has('updated_fields'))
                                                 @foreach ($log->properties['updated_fields'] as $field => $value)

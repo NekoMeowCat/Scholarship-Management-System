@@ -4,7 +4,7 @@
         <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden min-h-screen">
             <div class="overflow-x-auto">
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <thead class="text-sm text-gray-100 uppercase bg-[#164863] ">
                         <tr>
                             <th scope="col" class="px-4 py-3">Student</th>
                             <th scope="col" class="px-4 py-3">ID Number</th>
@@ -17,16 +17,16 @@
                     <tbody>
                         @foreach ($students as $student)
                             <tr class="border-b dark:border-gray-700 cursor-pointer" onclick="window.location='{{ route('view-scholar', ['id' => $student->id]) }}';">
-                                <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <th scope="row" class="px-4 py-3 font-medium text-gray-700 whitespace-nowrap dark:text-white">
                                     {{ $student->name }}    
                                     {{ $student->middle_name }}    
                                     {{ $student->last_name }}    
                                 </th>
-                                <td class="px-4 py-3">{{ $student->id_number }}</td>
-                                <td class="px-4 py-3">{{ $student->course }}</td>
-                                <td class="px-4 py-3">{{ $student->scholarship->name }}</td>
-                                <td class="px-4 py-3">{{ $student->department->name }}</td>
-                                <td class="px-4 py-3 block md:flex gap-x-2">
+                                <td class="px-4 py-3 text-gray-700">{{ $student->id_number }}</td>
+                                <td class="px-4 py-3 text-gray-700">{{ $student->course }}</td>
+                                <td class="px-4 py-3 text-gray-700">{{ $student->scholarship->name }}</td>
+                                <td class="px-4 py-3 text-gray-700">{{ $student->department->name }}</td>
+                                <td class="px-4 py-3 text-gray-700 block md:flex gap-x-2">
                                     @if ($student->status == 'not_verified')
                                         <img src="{{ asset('storage/images/check.png') }}" alt="Not Verified" class="ml-2 h-4 w-4">
                                     @elseif ($student->status == 'verified')

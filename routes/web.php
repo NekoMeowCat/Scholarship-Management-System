@@ -42,6 +42,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/students/{student}', [StudentsController::class, 'update'])->name('students.update');
     Route::get('/Scholars/Verified', [ScholarsController::class, 'verifiedScholars'])->name('verified.scholars');
     Route::get('/Scholars/Unverified', [ScholarsController::class, 'unverifiedScholars'])->name('unverified.scholars');
+    Route::get('/Scholars/Graduated', [ScholarsController::class, 'graduatedScholars'])->name('graduated.scholars');
 
     Route::get('/activity-logs', [StudentsController::class, 'activityLog'])->name('activity-logs');
 });

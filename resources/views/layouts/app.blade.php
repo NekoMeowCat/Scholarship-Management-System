@@ -10,12 +10,15 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-        <script src="../path/to/flowbite/dist/datepicker.js"></script>
+        <link href="{{ asset('node_modules/@fullcalendar/core/main.css') }}" rel="stylesheet" />
+        <link href="{{ asset('node_modules/@fullcalendar/daygrid/main.css') }}" rel="stylesheet" />
+        <script src="{{ asset('node_modules/@fullcalendar/core/main.js') }}"></script>
+        <script src="{{ asset('node_modules/@fullcalendar/daygrid/main.js') }}"></script>
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-poppins antialiased">
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
@@ -34,5 +37,5 @@
             </main>
         </div>
     </body>
-    <script src="../path/to/flowbite/dist/datepicker.js"></script>
+    <script src="{{ asset('js/calendar.js') }}"></script>
 </html>

@@ -5,21 +5,18 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-use Spatie\Activitylog\Models\Activity;
 use App\Models\Students;
 
-
-class activityLogTable extends Component
+class graduatedScholarsTable extends Component
 {
     /**
      * Create a new component instance.
      */
+    public $students;
 
-    public $activityLogs;
-
-    public function __construct($activityLogs)
+    public function __construct()
     {
-        $this->activityLogs = $activityLogs;
+        $this->students = Students::where('status', 'graduated')->paginate(10);
     }
 
     /**
@@ -27,6 +24,6 @@ class activityLogTable extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.activity-log-table');
+        return view('components.graduated-scholars-table');
     }
 }

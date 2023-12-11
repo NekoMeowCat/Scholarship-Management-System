@@ -8,10 +8,7 @@
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-5 mx-6">
                     <x-dashboard-second-menu />               
-                </div>
-                <div class="bg-white mx-6 mt-6 rounded-md ">
-                    <x-table />
-                </div>              
+                </div>            
             </div>           
         </section>       
     </div>

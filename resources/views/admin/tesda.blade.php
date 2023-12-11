@@ -4,10 +4,19 @@
             <x-sidebar></x-sidebar>
             <div class="w-full items-center">
                 <div class="m-8 min-h-screen block">
-                    <div class="block md:flex w-full p-1 bg-gray-700 rounded-md shadow-2xl">
-                        <img src="{{ asset('storage/images/chedar.png') }}" alt="" class="h-full w-full flex justify-center ml-16 lg:ml-10">                       
+                    <div class="w-full block md:flex bg-gray-50 rounded-md shadow-2xl">
+                        <div class="flex justify-center items-center border-r-4 border-[#1c3148] my-6 w-4/6">
+                            <img src="{{ asset('storage/images/tesda.png') }}" alt="" class="h-64">
+                        </div>
+                        <div class="block h-64">
+                            <div class="flex justify-center items-center m-2 h-full">
+                                <span class="px-6 font-zilla text-4xl md:text-6xl uppercase text-[#1e6392] tracking-normal font-medium md:font-semibold text-center">
+                                    The Technical Education and Skills Development Authority
+                                </span>
+                            </div>                             
+                        </div>
                     </div>
-                    <div class="border border-black h-screen w-full mt-4">
+                    <div class="rounded-md shadow-2xl h-screen w-full mt-4">
                         <x-tesda-table />
                     </div>
                 </div>               
