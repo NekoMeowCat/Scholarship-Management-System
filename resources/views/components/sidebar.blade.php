@@ -1,101 +1,82 @@
+<div id="sidebar-mini" class="min-h-screen hidden z-[60] w-[100px] bg-gray-700 border-e border-gray-200 lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 ">
+    <div class="flex flex-col justify-center items-center gap-y-2 ">
+        <div class="">
+            <img src="{{ asset('storage/images/urioslogo.png') }}" alt="Sidebar Image" class="  object-cover">
+        </div>
 
+        <div class="flex flex-col items-center">
+            <div class="hs-tooltip [--placement:right] block">
+                <button type="button" class="hs-tooltip-toggle w-[2.375rem] h-[2.375rem] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 disabled:opacity-50 disabled:pointer-events-none dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+                    <a href="{{ route('dashboard') }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-white">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                        </svg>
+                    </a>
+                    <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 inline-block absolute invisible z-20 py-1.5 px-2.5 bg-gray-900 text-xs text-white rounded-lg whitespace-nowrap dark:bg-neutral-700" role="tooltip">
+                    Home
+                    </span>
+                </button>
+            </div>
+            <span class="text-xs text-gray-100 font-normal">
+                Dashboard
+            </span>
+        </div>
 
-<aside id="default-sidebar" class="min-h-screen z-40 transition-transform sm:translate-x-0"
-    aria-label="Sidebar"
-    x-data="{ sidebarOpen: false, iconOnly: true }"
-    x-bind:class="sidebarOpen ? 'w-[350px]' : 'w-[80px]'"
->
-    
-    <div class="h-full overflow-y-auto bg-[#164863] rounded-br-lg">
-        <button data-drawer-target="default-sidebar"  aria-controls="default-sidebar"
-                type="button"
-                class="inline-flex items-center p-2 mt-2 ml-4 text-sm text-gray-500 rounded-lg"
-                x-on:click="sidebarOpen = !sidebarOpen, iconOnly = !iconOnly"
-                x-bind:class="{'w-10': iconOnly, 'w-6': !iconOnly}">      
-            <svg class="flex-shrink-0 w-6 h-6 text-white" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
-            </svg>            
-        </button>
+        <div class="flex flex-col items-center">
+            <div class="hs-tooltip [--placement:right] block">
+                <button type="button" class="hs-tooltip-toggle w-[2.375rem] h-[2.375rem] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 disabled:opacity-50 disabled:pointer-events-none d">
+                    <a href="{{ route('admin.scholars') }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-white">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+                        </svg>
+                    </a>
+                    <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 inline-block absolute invisible z-20 py-1.5 px-2.5 bg-gray-900 text-xs text-white rounded-lg whitespace-nowrap dark:bg-neutral-700" role="tooltip">
+                        View All Scholars
+                    </span>
+                </button>
+            </div>
+            <span class="text-xs text-gray-100 font-normal capitalize">
+                Scholars
+            </span>
+        </div>
 
-        <ul class=" font-medium" >
-            <li class="p-4  rounded-full">
-                <a href="{{ route('dashboard') }}" class="flex items-center justify-center p-2  group">
-                    <img src="{{ asset('storage/images/performance.png') }}" alt="" class="h-5 w-5">
-                <span class=" hover:text-gray-200 text-gray-50 text-sm flex-1 ml-3 whitespace-nowrap font-poppins tracking-tight font-medium" x-show="!iconOnly">Dashboard</span>
-                </a>
-            </li>
-            <li class="p-4  rounded-full">
-                <span class=" flex items-center justify-center p-2 text-gray-900 rounded-lg transition duration-100" aria-controls="dropdown-example" data-collapse-toggle="dropdown-example1" x-data="{ sidebarOpen: false }" @click="sidebarOpen = !sidebarOpen">
-                    <img src="{{ asset('storage/images/student.png') }}" alt="" class="h-5 w-5">
-                    <span class="text-sm flex-1 ml-3 whitespace-nowrap font-poppins tracking-tight font-medium hover:text-gray-200 text-gray-50 hover:tracking-loose" x-show="!iconOnly">Scholars</span>
-                    <svg class="text-white h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 transition-transform transform text-gray-600" :class="{ '-rotate-90': !sidebarOpen, 'hidden': !sidebarOpen }" x-show="!iconOnly">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                </span>
-                <ul id="dropdown-example1" class="hidden py-2 space-y-2 transition duration-100 " x-show="sidebarOpen">
-                    <li>
-                        <a href="{{ route('verified.scholars') }}" class="text-sm flex items-center w-full p-2 font-poppins hover:bg-[#9BBEC8]  hover:text-gray-700 tracking-tight font-medium text-gray-100 transition duration-75 rounded-lg pl-11 group">
-                        <img src="{{ asset('storage/images/approved.png') }}" alt="" class="h-5 w-5 text-gray-50 mr-2">Verified</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('unverified.scholars') }}" class="text-sm flex items-center w-full p-2 font-poppins hover:bg-[#9BBEC8]  hover:text-gray-700 tracking-tight font-medium text-gray-100 transition duration-75 rounded-lg pl-11 group">
-                        <img src="{{ asset('storage/images/check.png') }}" alt="" class="h-5 w-5 text-gray-50 mr-2">Not Verified</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('graduated.scholars') }}" class="text-sm flex items-center w-full p-2 font-poppins hover:bg-[#9BBEC8]  hover:text-gray-700 tracking-tight font-medium text-gray-100 transition duration-75 rounded-lg pl-11 group">
-                        <img src="{{ asset('storage/images/cap.png') }}" alt="" class="h-5 w-5 text-gray-50 mr-2">Graduated</a>
-                    </li>        
-                </ul>
-            </li>
-            <li class="p-4  rounded-full">
-                <span class=" flex items-center justify-center p-2 text-gray-900 rounded-lg transition duration-100" aria-controls="dropdown-example" data-collapse-toggle="dropdown-example" x-data="{ sidebarOpen: false }" @click="sidebarOpen = !sidebarOpen">
-                    <img src="{{ asset('storage/images/university.png') }}" alt="" class="h-5 w-5">
-                    <span class="text-sm flex-1 ml-3 whitespace-nowrap font-poppins tracking-tight font-medium hover:text-gray-200 text-gray-50 hover:tracking-loose" x-show="!iconOnly">Scholarships</span>
-                    <svg class="text-white h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 transition-transform transform text-gray-600" :class="{ '-rotate-90': !sidebarOpen, 'hidden': !sidebarOpen }" x-show="!iconOnly">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                </span>
-                <ul id="dropdown-example" class="hidden py-2 space-y-2 transition duration-100 " x-show="sidebarOpen">
-                    <li>
-                        <a href="{{ route('sagap') }}" class="text-sm flex items-center w-full p-2 font-poppins hover:bg-[#9BBEC8] hover:text-gray-700 tracking-tight font-medium text-gray-100 transition duration-75 rounded-lg pl-11 group">
-                            <img src="{{ asset('storage/images/yes.png') }}" alt="" class="h-5 w-5 text-gray-50 text-sm mr-2">Sagap</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('sunlife') }}" class="text-sm flex items-center w-full p-2 font-poppins hover:bg-[#9BBEC8] hover:text-gray-700 tracking-tight font-medium text-gray-100 transition duration-75 rounded-lg pl-11 group">
-                            <img src="{{ asset('storage/images/sunlife.png') }}" alt="" class="h-5 w-5 text-gray-50 text-sm mr-2">Sunlife</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('sm') }}" class="text-sm flex items-center w-full p-2 font-poppins hover:bg-[#9BBEC8] hover:text-gray-700 tracking-tight font-medium text-gray-100 transition duration-75 rounded-lg pl-11 group">
-                            <img src="{{ asset('storage/images/sm.png') }}" alt="" class="h-5 w-5 text-gray-50 text-sm mr-2">SM</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('ched') }}" class="text-sm flex items-center w-full p-2 font-poppins hover:bg-[#9BBEC8] hover:text-gray-700 tracking-tight font-medium text-gray-100 transition duration-75 rounded-lg pl-11 group">
-                            <img src="{{ asset('storage/images/cc.png') }}" alt="" class="h-5 w-5 text-gray-50 text-sm mr-2">Ched</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('tes') }}" class="text-sm flex items-center w-full p-2 font-poppins hover:bg-[#9BBEC8] hover:text-gray-700 tracking-tight font-medium text-gray-100 transition duration-75 rounded-lg pl-11 group">
-                            <img src="{{ asset('storage/images/tes.png') }}" alt="" class="h-5 w-5 text-gray-50 text-sm mr-2">Tes</a>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('tesda') }}" class="text-sm flex items-center w-full p-2 font-poppins hover:bg-[#9BBEC8] hover:text-gray-700 tracking-tight font-medium text-gray-100 transition duration-75 rounded-lg pl-11 group">
-                            <img src="{{ asset('storage/images/tesda.png') }}" alt="" class="h-5 w-5 text-gray-50 text-sm mr-2">Tesda</a>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="p-4  rounded-full">
-                <a href="#" class="flex items-center justify-center p-2 text-gray-900 rounded-lg text-sm group">
-                    <img src="{{ asset('storage/images/users.png') }}" alt="" class="h-5 w-5">
-                    <span class=" hover:text-gray-200 text-gray-50 flex-1 ml-3 whitespace-nowrap font-poppins tracking-tight font-medium" x-show="!iconOnly">Users</span>
-                </a>
-            </li>
-            <li class="p-4  rounded-full">
-                <a href="{{ route('activity-logs') }}" class="flex items-center justify-center p-2 text-gray-900 rounded-lg text-sm group">
-                    <img src="{{ asset('storage/images/puzzle.png') }}" alt="" class="h-5 w-5">
-                    <span class=" flex-1 ml-3 hover:text-gray-200 text-gray-50 whitespace-nowrap font-poppins text-sm tracking-tight font-medium" x-show="!iconOnly">Activity Logs</span>
-                </a>
-            </li>
-        </ul>
+        <div class="flex flex-col items-center">
+            <div class="hs-tooltip [--placement:right] block">
+                <button type="button" class="hs-tooltip-toggle w-[2.375rem] h-[2.375rem] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 disabled:opacity-50 disabled:pointer-events-none d">
+                    <a href="{{ route('admin.add-scholar') }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-white">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z" />
+                        </svg>
+                    </a>
+                    <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 inline-block absolute invisible z-20 py-1.5 px-2.5 bg-gray-900 text-xs text-white rounded-lg whitespace-nowrap dark:bg-neutral-700" role="tooltip">
+                        Add A Scholar
+                    </span>
+                </button>
+            </div>
+            <span class="text-xs text-gray-100 font-normal capitalize">
+                add scholar
+            </span>
+        </div>
+
+        <div class="flex flex-col items-center">
+            <div class="hs-tooltip [--placement:right] block">
+                <button type="button" class="hs-tooltip-toggle w-[2.375rem] h-[2.375rem] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 disabled:opacity-50 disabled:pointer-events-none d">
+                    <a href="{{ route('activity-logs') }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-white">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 3.75H6.912a2.25 2.25 0 00-2.15 1.588L2.35 13.177a2.25 2.25 0 00-.1.661V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 00-2.15-1.588H15M2.25 13.5h3.86a2.25 2.25 0 012.012 1.244l.256.512a2.25 2.25 0 002.013 1.244h3.218a2.25 2.25 0 002.013-1.244l.256-.512a2.25 2.25 0 012.013-1.244h3.859M12 3v8.25m0 0l-3-3m3 3l3-3" />
+                        </svg>
+                    </a>
+                    <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 inline-block absolute invisible z-20 py-1.5 px-2.5 bg-gray-900 text-xs text-white rounded-lg whitespace-nowrap dark:bg-neutral-700" role="tooltip">
+                        Activity Logs
+                    </span>
+                </button>
+            </div>
+            <span class="text-xs text-gray-100 font-normal capitalize">
+                activity logs
+            </span>
+        </div>
+        
+
+        
     </div>
-</aside>
+</div>

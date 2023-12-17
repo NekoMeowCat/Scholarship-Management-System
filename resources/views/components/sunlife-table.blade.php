@@ -16,7 +16,7 @@
                     <tbody>
                         @foreach ($students as $student)
                             <tr class="border-b dark:border-gray-700 cursor-pointer" onclick="window.location='{{ route('view-scholar', ['id' => $student->id]) }}';">
-                                <th scope="row" class="px-4 py-3 font-medium text-gray-600 whitespace-nowrap dark:text-white">
+                                <th scope="row" class="px-4 py-3 font-normal text-gray-600 whitespace-nowrap dark:text-white">
                                     {{ $student->name }}    
                                     {{ $student->middle_name }}    
                                     {{ $student->last_name }}    

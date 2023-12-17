@@ -15,6 +15,21 @@ class ScholarshipController extends Controller
         
     }
 
+    public function fsuuFunded()
+    {
+        return view('admin.fsuu-funded');
+    }
+
+    public function privateFunded()
+    {
+        return view('admin.private-funded');
+    }
+
+    public function govtFunded()
+    {
+        return view('admin.govt-funded');
+    }
+
     public function sagap()
     {
         return view('admin.sagap');

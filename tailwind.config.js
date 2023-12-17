@@ -26,7 +26,7 @@ export default {
                 oxygen: ['Oxygen'],
                 poppins: ['Poppins'],
                 raleway: ['Raleway'],
-                roboto: ['Roboto'],
+                roboto: ['Roboto Slab'],               
             },
         },
     },

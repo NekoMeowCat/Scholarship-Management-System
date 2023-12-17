@@ -43,6 +43,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/Scholars/Verified', [ScholarsController::class, 'verifiedScholars'])->name('verified.scholars');
     Route::get('/Scholars/Unverified', [ScholarsController::class, 'unverifiedScholars'])->name('unverified.scholars');
     Route::get('/Scholars/Graduated', [ScholarsController::class, 'graduatedScholars'])->name('graduated.scholars');
+    Route::get('/scholarship/fsuu_funded', [ScholarshipController::class, 'fsuuFunded'])->name('fsuu-funded');
+    Route::get('/scholarship/private_funded', [ScholarshipController::class, 'privateFunded'])->name('private-funded');
+    Route::get('/scholarship/government_funded', [ScholarshipController::class, 'govtFunded'])->name('govt-funded');
 
     Route::get('/activity-logs', [StudentsController::class, 'activityLog'])->name('activity-logs');
 });

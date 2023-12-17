@@ -1,106 +1,52 @@
-<div class="bg-white rounded-md drop-shadow-lg">
-    <div class="my-6 mx-3">
-        <div class="w-12 h-12 rounded-full bg-[#D0E7D2] ml-4">
-            <div class="">
-                <img src="{{ asset('storage/images/graduate.png') }}" alt="" class="h-full w-full">
-            </div>                                                       
-        </div>
-        <div class="font-poppins mt-4 ml-4 text-xl font-semibold tracking-tight text-gray-800">
-            {{ $count }}
-        </div>
-        <div class="flex justify-between mx-4">
-            <div class="text-gray-400">
-                <span class="text-sm tracking-tight font-poppins">Total Scholars</span>
+<div class="bg-transparent rounded-md m-2 my-4">
+    <div class="grid grid-cols-3 gap-4 px-8 py-4">
+        <div class="flex flex-col border shadow-xl rounded-md">
+            <div class="bg-[#42424e] rounded-t-md border-b py-3 px-4 md:py-4 md:px-5 dark:bg-slate-900 dark:border-gray-700">
+                <p class="text-base text-gray-100">
+                    Total Scholars ( {{$count}} )
+                </p>
             </div>
-            <div class="flex items-center font-normal text-green-500"> <!-- Add this container div -->
-                <a href="{{ route('admin.scholars') }}" class="cursor-pointer flex">
-                    <span class="text-sm tracking-tight font-poppins">
-                        See more 
-                    </span>
-                    <svg class="w-3 h-3 mb-0 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13V1m0 0L1 5m4-4 4 4"/>
-                    </svg>
+            <div class="p-4 md:p-5">
+                <p class="mt-2 text-gray-500 font-normal text-sm">
+                    Empowering {{$count}} scholars on their educational journey. Together, we support success and achievement.
+                </p>
+                <a class="mt-3 inline-flex items-center gap-x-1 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="{{ route('admin.scholars') }}">
+                    See all
+                <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </a>
             </div>
-        </div>   
-    </div>
-</div>
-<div class="bg-white rounded-md drop-shadow-lg">
-    <div class="my-6 mx-3">
-        <div class="w-12 h-12 mt-1 rounded-full bg-[#D0E7D2] ml-4">
-            <div class="">
-                <img src="{{ asset('storage/images/verified.png') }}" alt="" class="h-full w-full">
-            </div>                                                        
         </div>
-        <div class="font-poppins mt-4 ml-4 text-xl font-semibold tracking-tight text-gray-800">
-            {{ $countVerified }}
-        </div>
-        <div class="flex justify-between mx-4">
-            <div class="text-gray-400">
-                <span class="text-sm tracking-tight font-poppins">Verified Scholars</span>
+        <div class="flex flex-col border shadow-xl rounded-md">
+            <div class="bg-[#5e6671] rounded-t-md border-b py-3 px-4 md:py-4 md:px-5 dark:bg-slate-900 dark:border-gray-700">
+                <p class="text-base text-gray-100">
+                    Unverified Scholars ( {{$countUnverified}} )
+                </p>
             </div>
-            <div class="flex items-center font-normal text-green-500"> <!-- Add this container div -->
-                <a href="{{ route('verified.scholars') }}" class="cursor-pointer flex">
-                    <span class="text-sm tracking-tight font-poppins">
-                        See more 
-                    </span>
-                    <svg class="w-3 h-3 mb-0 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13V1m0 0L1 5m4-4 4 4"/>
-                    </svg>
+            <div class="p-4 md:p-5">
+                <p class="mt-2 text-gray-500 font-normal text-sm">
+                    {{$countUnverified}} scholars await completion of missing requirements. Let's ensure all criteria are met for their continued success.
+                </p>
+                <a class="mt-3 inline-flex items-center gap-x-1 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="{{ route('unverified.scholars') }}">
+                    See all
+                <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </a>
             </div>
-        </div>   
-    </div>
-</div>
-<div class="bg-white rounded-md drop-shadow-lg">
-    <div class="my-6 mx-3">
-        <div class="w-12 h-12 mt-1 rounded-full bg-[#D0E7D2] ml-4">
-            <div class="">
-                <img src="{{ asset('storage/images/verify.png') }}" alt="" class="h-full w-full">
-            </div>                                                         
         </div>
-        <div class="font-poppins mt-4 ml-4 text-2xl font-semibold tracking-tight text-gray-800">
-            {{ $countUnverified }}
-        </div>
-        <div class="flex justify-between mx-4">
-            <div class="text-gray-400">
-                <span class="text-sm tracking-tight font-poppins">Unverified</span>
+        <div class="flex flex-col border shadow-xl rounded-md">
+            <div class="bg-[#0e4b90] rounded-t-md border-b py-3 px-4 md:py-4 md:px-5 dark:bg-slate-900 dark:border-gray-700">
+                <p class="text-base text-gray-100">
+                    Graduated Scholars ( {{$countGraduated}} )
+                </p>
             </div>
-            <div class="flex items-center font-normal text-green-500"> <!-- Add this container div -->
-                <a href="{{ route('unverified.scholars') }}" class="cursor-pointer flex">
-                    <span class="text-sm tracking-tight font-poppins">
-                        See more 
-                    </span>
-                    <svg class="w-3 h-3 mb-0 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13V1m0 0L1 5m4-4 4 4"/>
-                    </svg>
+            <div class="p-4 md:p-5">
+                <p class="mt-2 text-gray-500 font-normal text-sm">
+                    Transformed Futures: The scholarship program has impacted {{$countGraduated}} lives, leaving an enduring legacy of positive change.
+                </p>
+                <a class="mt-3 inline-flex items-center gap-x-1 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="{{ route('graduated.scholars') }}">
+                    See all
+                <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </a>
             </div>
-        </div>   
-    </div>
-</div>
-<div class="bg-white rounded-md drop-shadow-lg">
-    <div class="my-6 mx-3">
-        <div class="w-12 h-12 mt-1 rounded-full bg-[#D0E7D2] ml-4">
-            <div class="">
-                <img src="{{ asset('storage/images/unknown.png') }}" alt="" class="h-full w-full">
-            </div>                                                         
         </div>
-        <div class="font-poppins mt-4 ml-4 text-2xl font-semibold tracking-tight text-gray-800">
-            
-        </div>
-        <div class="flex justify-between mx-4">
-            <div class="text-gray-400">
-                <span class="text-sm tracking-tight font-poppins">Total Admins</span>
-            </div>
-            <!-- <div class="flex items-center font-normal text-green-500">  Add this container div
-                <span class="text-sm tracking-tight font-poppins">
-                    0.43%  
-                </span>
-                <svg class="w-3 h-3 mb-0 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13V1m0 0L1 5m4-4 4 4"/>
-                </svg>
-            </div> -->
-        </div>   
     </div>
 </div>

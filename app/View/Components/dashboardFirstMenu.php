@@ -15,12 +15,14 @@ class dashboardFirstMenu extends Component
     public $count;
     public $countVerified;
     public $countUnverified;
+    public $countGraduated;
 
     public function __construct()
     {
         $this->count = Students::count();
         $this->countVerified = Students::where('status', 'verified')->count();
         $this->countUnverified = Students::where('status', 'not_verified')->count();
+        $this->countGraduated = Students::where('status', 'graduated')->count();
         
     }
 

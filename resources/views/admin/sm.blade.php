@@ -4,23 +4,23 @@
             <x-sidebar></x-sidebar>
             <div class="w-full items-center">
                 <div class="m-8 min-h-screen block">
-                    <div class="block md:flex w-full p-1 bg-gray-100 rounded-md shadow-2xl h-80">
-                        <div class="flex justify-center items-center">
-                            <img src="{{ asset('storage/images/sm.png') }}" alt="" class="h-64 w-64 flex justify-center ml-16 lg:ml-10">
-                        </div>
-                        <div class="block md:py-6">
-                            <div class="flex justify-center pt-16 h-auto">
-                                <span class="text-5xl md:text-8xl uppercase text-blue-800 tracking-tighter font-extrabold">
-                                    Supermalls
-                                </span>
-                            </div>
-                            <div class="m-2 h-auto flex justify-end items-center">
-                                <span class="md:text-2xl uppercase text-blue-700 tracking-tighter font-medium font-poppins">
-                                    we got it all for you
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                    <ol class="flex items-center whitespace-nowrap" aria-label="Breadcrumb">
+                        <li class="inline-flex items-center">
+                            <a class="flex items-center text-sm text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 dark:focus:text-blue-500" href="#">
+                                Home
+                            </a>
+                            <svg class="flex-shrink-0 mx-2 overflow-visible h-4 w-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                        </li>
+                        <li class="inline-flex items-center">
+                            <a class="flex items-center text-sm text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 dark:focus:text-blue-500" href="{{ route('private-funded') }}">
+                                Private Funded
+                            <svg class="flex-shrink-0 mx-2 overflow-visible h-4 w-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                            </a>
+                        </li>
+                        <li class="inline-flex items-center text-sm font-semibold text-gray-800 truncate dark:text-gray-200" aria-current="page">
+                            SM City
+                        </li>
+                    </ol>
                     <div class="rounded-md shadow-2xl h-screen w-full mt-4">
                         <x-sm-table />
                     </div>
