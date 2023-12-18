@@ -16,11 +16,13 @@ return new class extends Migration
             $table->string('name');
             $table->string('middle_name');
             $table->string('last_name');
+            $table->string('student_image')->nullable();
             $table->string('year_level');
             $table->string('id_number');
             $table->string('gender');
             $table->string('course');
             $table->string('email')->unique();
+            $table->enum('semester', ['1st Semester', '2nd Semester'])->default('1st Semester');
             $table->enum('status', ['verified', 'not_verified', 'graduated'])->default('not_verified');
             $table->foreignId('department_id')->constrained();
             $table->foreignId('scholarship_id')->constrained('scholarships');

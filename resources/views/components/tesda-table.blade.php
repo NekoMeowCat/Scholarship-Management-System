@@ -2,8 +2,8 @@
     <div class=" ">
         <!-- Start coding here -->
         <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden min-h-screen">
-            <div class="overflow-x-auto">
-                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <div class="overflow-x-auto p-2">
+                <table id="example" class="display nowrap w-full text-sm text-left text-gray-500 " style="width:100%">
                     <thead class="text-sm text-gray-100 uppercase bg-[#164863]">
                         <tr>
                             <th scope="col" class="px-4 py-3">Student</th>

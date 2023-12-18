@@ -1,6 +1,6 @@
-<div id="sidebar-mini" class="min-h-screen hidden z-[60] w-[100px] bg-gray-700 border-e border-gray-200 lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 ">
+<div id="sidebar-mini" class="min-h-screen hidden z-[60] w-[100px] bg-[#4b4b81] border-e border-gray-200 lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 ">
     <div class="flex flex-col justify-center items-center gap-y-2 ">
-        <div class="">
+        <div class="bg-[#6a6d88]">
             <img src="{{ asset('storage/images/urioslogo.png') }}" alt="Sidebar Image" class="  object-cover">
         </div>
 
