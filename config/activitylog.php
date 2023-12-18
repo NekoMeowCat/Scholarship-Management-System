@@ -42,6 +42,9 @@ return [
      * used by the Activity model shipped with this package.
      */
     'table_name' => 'activity_log',
+    
+    'timezone' => 'Asia/Manila',
+
 
     /*
      * This is the database connection that will be used by the migration and

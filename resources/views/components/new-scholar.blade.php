@@ -8,6 +8,7 @@
                 </ul>
             </div>
         @endif
+        
         <form method="POST" action="{{ route('admin.store-scholar') }}" enctype="multipart/form-data">
             @csrf
             <div class="py-6">

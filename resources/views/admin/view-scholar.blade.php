@@ -103,19 +103,25 @@
                     @csrf
                     @method('PUT')
                     <div class="bg-gray-50 my-2 rounded-md shadow-2xl">
-                        <div class="w-full flex bg-gray-50 justify-start lg:justify-end p-4">
-                            <select name="status" id="status" class="py-3 px-4 pe-9 block text-black border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
-                                <option value="verified" {{ $student->status === 'verified' ? 'selected' : '' }}>Verified</option>
-                                <option value="not_verified" {{ $student->status === 'not_verified' ? 'selected' : '' }}>Not Verified</option>
-                                <option value="graduated" {{ $student->status === 'graduated' ? 'selected' : '' }}>Graduated</option>
-                            </select>
-                        </div>  
+                        <div class="flex">
+                            <div class="w-full flex bg-gray-50 justify-start lg:justify-end p-4">
+                                <select name="status" id="status" class="mr-1 py-3 px-4 pe-9 block text-black border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
+                                    <option value="verified" {{ $student->status === 'verified' ? 'selected' : '' }}>Verified</option>
+                                    <option value="not_verified" {{ $student->status === 'not_verified' ? 'selected' : '' }}>Not Verified</option>
+                                    <option value="graduated" {{ $student->status === 'graduated' ? 'selected' : '' }}>Graduated</option>
+                                </select>
+                                <select name="semester" id="semester" class="py-3 px-4 pe-9 block text-black border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
+                                    <option value="1st Semester" {{ $student->semester === '1st Semester' ? 'selected' : '' }}>1st Semester</option>
+                                    <option value="2nd Semester" {{ $student->semester === '2nd Semester' ? 'selected' : '' }}>2nd Semester</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="block md:flex bg-gray-50 min-h-screen s">
                             <div class="p-10 flex justify-center items-center md:items-start">
                                 <div class="h-64 w-64 rounded-full bg-gray-400 border-gray-50 border-4 flex justify-center relative">
                                     <img src="{{ asset('storage/images/unknown.png') }}" alt="" class="p-1 object-cover w-full h-full rounded-full text-white">                                    
                                     <label for="fileInput" class="absolute inset-0 w-full h-full cursor-pointer flex items-center justify-center"></label>
-                                    <input name="scholar_image" type="file" id="fileInput" class="hidden" accept="image/*">
+                                    <input name="student_image" type="file" id="fileInput" class="hidden" accept="image/*">
                                 </div> 
                             </div>
                             <div class="md:m-4 min-h-screen w-full rounded-md">

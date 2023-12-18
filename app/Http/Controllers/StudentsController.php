@@ -16,6 +16,13 @@ use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Activitylog\Models\Activity;
 
+// use Maatwebsite\Excel\Facades\Excel;
+// use App\Imports\StudentsImport;
+// use Maatwebsite\Excel\Concerns\ToModel;
+// use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Barryvdh\DomPDF\Facade\Pdf;
+
+
 
 
 
@@ -30,7 +37,21 @@ class StudentsController extends Controller
         return view('admin.add-scholar');
     }
 
-    /**
+    // public function import(Request $request)
+    // {
+        // $request->validate([
+        //     'file' => 'required|file|mimes:csv,txt'
+        // ]);
+
+        // if ($request->file('file')->isValid()) {
+        //     Excel::import(new StudentsImport, $request->file('file'));
+        //     return redirect()->back()->with('success', 'CSV file imported successfully.');
+        // } else {
+        //     return redirect()->back()->with('error', 'File upload error: ' . $request->file('file')->getErrorMessage());
+        // }
+    // }
+
+    /**`
      * Show the form for creating a new resource.
      */
     public function activityLog()
@@ -40,6 +61,9 @@ class StudentsController extends Controller
 
         return view('admin.activity-logs', compact('activityLogs'));
     }
+
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -151,6 +175,8 @@ class StudentsController extends Controller
     {
         $request->validate([
             'status' => 'required|in:verified,not_verified,graduated',
+            'semester' => 'required|in:1st Semester,2nd Semester',
+            'student_image' => 'nullable|file|mimes:jpeg,png,jpg,gif|max:2048',
             'name' => 'required|string',
             'middle_name' => 'string',
             'last_name' => 'required|string',
@@ -168,6 +194,7 @@ class StudentsController extends Controller
             'contact_person' => 'required|string',
             'contact_person_number' => 'required|string',           
         ]);
+        
 
         $student = Students::findOrFail($id);
 
@@ -185,7 +212,7 @@ class StudentsController extends Controller
                 ->performedOn($student)
                 ->causedBy(auth()->user())
                 ->withProperties(['updated_fields' => $updatedFields])
-                ->log('Updated Student');
+                ->log('Updated Student', ['created_at' => now()]);
         }
         
         return redirect()->back();

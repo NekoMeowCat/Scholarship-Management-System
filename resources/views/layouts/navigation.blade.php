@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-blue-800">
+<nav x-data="{ open: false }" class="bg-[#4b4b81] border-4 border-[#4b4b81]">
     <!-- Primary Navigation Menu -->
     <div class="max-w-full mx-20 px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-12">
@@ -15,7 +15,7 @@
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="bg-blue-800 inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-50  hover:text-gray-200 focus:outline-none transition ease-in-out duration-150">
+                        <button class="bg-[#4b4b81] inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-50  hover:text-gray-200 focus:outline-none transition ease-in-out duration-150">
                             <div>{{ Auth::user()->name }}</div>
 
                             <div class="ms-1">
