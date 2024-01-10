@@ -14,18 +14,18 @@ return new class extends Migration
         Schema::create('attachments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('student_id')->constrained();
-            $table->string('transcript_of_records')->nullable();
-            $table->string('certificate_of_enrollment')->nullable();
-            $table->string('grade_slip')->nullable();
-            $table->string('income_tax_return')->nullable();
-            $table->string('certificate_of_indegency')->nullable();
-            $table->string('statement_of_accounts')->nullable();
-            $table->string('birth_certificate')->nullable();
-            $table->string('good_moral')->nullable();
-            $table->string('valid_id')->nullable();
-            $table->string('application_form')->nullable();
-            $table->string('essay')->nullable();
-            $table->string('endorsement')->nullable();
+            $table->boolean('transcript_of_records')->default(false)->nullable();
+            $table->boolean('certificate_of_enrollment')->default(false)->nullable();
+            $table->boolean('grade_slip')->default(false)->nullable();
+            $table->boolean('income_tax_return')->default(false)->nullable();
+            $table->boolean('certificate_of_indegency')->default(false)->nullable();
+            $table->boolean('statement_of_accounts')->default(false)->nullable();
+            $table->boolean('birth_certificate')->default(false)->nullable();
+            $table->boolean('good_moral')->default(false)->nullable();
+            $table->boolean('valid_id')->default(false)->nullable();
+            $table->boolean('application_form')->default(false)->nullable();
+            $table->boolean('essay')->default(false)->nullable();
+            $table->boolean('endorsement')->default(false)->nullable();
             $table->timestamps();
         });
     }

@@ -22,7 +22,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($activityLogs as $log)
+                                @foreach ($activityLogs as $log)
                                     <tr class="border">
                                         <td class="px-4 py-3 text-gray-600">{{ $log->causer->name }}</td>
                                         <td class="px-4 py-3 text-gray-600">{{ $log->description }}</td>
@@ -31,17 +31,17 @@
                                         <td class="px-4 py-3 text-gray-600">{{ $log->created_at->timezone('Asia/Manila')->format('Y-m-d h:i:s A') }}</td>
                                         <td>
                                             @if ($log->properties->has('old') && $log->properties->has('attributes'))
-                                            @foreach ($log->properties['old'] as $field => $oldValue)
-                                                @php
-                                                    $newValue = $log->properties['attributes'][$field] ?? null;
-                                                @endphp
-                                                @if ($oldValue !== $newValue)
-                                                    <strong>{{ $field }}:</strong> {{ $oldValue }} changed to {{ $newValue }}<br>
-                                                @endif
-                                            @endforeach
-                                        @else
-                                            No updated fields
-                                        @endif
+                                                @foreach ($log->properties['old'] as $field => $oldValue)
+                                                    @php
+                                                        $newValue = $log->properties['attributes'][$field] ?? null;
+                                                    @endphp
+                                                    @if ($oldValue !== $newValue && is_scalar($oldValue))
+                                                        <strong>{{ $field }}:</strong> {{ $oldValue }} changed to {{ $newValue }}<br>
+                                                    @endif
+                                                @endforeach
+                                            @else
+                                                No updated fields
+                                            @endif                                           
                                         </td>
                                     </tr>
                                 @endforeach

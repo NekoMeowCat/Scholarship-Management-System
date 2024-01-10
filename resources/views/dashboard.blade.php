@@ -10,26 +10,7 @@
 
                 <!-- Only show 'asdasd' when the activeTab is 'dashboard' -->
                 <div x-show="activeTab === 'dashboard'">
-                    <div class="flex capitalize m-2 my-4 bg-gray-50 rounded-md h-96 border shadow-2xl">
-                        <div class="flex flex-col w-full">
-                            <div class="h-12 border-b-2 flex items-center rounded-t-md bg-[#4b4b81]">
-                                <span class="capitalize m-2 font-normal font-roboto text-lg text-white ">welcome</span>
-                            </div>
-                            <div class="flex justify-center items-center h-[300px] bg-[#0e4b90] rounded-sm m-4">
-                                <div class="block text-center">
-                                    <div class="capitalize text-white text-[38px] font-roboto tracking-tight">
-                                        welcome to father saturnino urios university!
-                                    </div>
-                                    <div class="capitalize text-white font-roboto tracking-wide py-3">
-                                        <span class=" text-[28px] tracking-tight">scholarship data management system</span>
-                                    </div>
-                                    <div class="capitalize text-white font-roboto tracking-wide">
-                                        <span class="font-light text-base tracking-tight">designed for transparent scholarship administration</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                     
                     <!-- 'asdasd' in a separate div below the first div -->
                     <div class="bg-white rounded-lg m-2 my-8 shadow-2xl">
@@ -74,6 +55,26 @@
                                         list of funded by government agencies
                                     </p>
                                     <a href="{{ route('govt-funded') }}" class="rounded-full bg-blue-600 py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60">See More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex capitalize m-2 my-4 bg-gray-50 rounded-md h-96 border shadow-2xl">
+                        <div class="flex flex-col w-full">
+                            <div class="h-12 border-b-2 flex items-center rounded-t-md bg-[#4b4b81]">
+                                <span class="capitalize m-2 font-normal font-roboto text-lg text-white ">Featuring</span>
+                            </div>
+                            <div class="flex justify-center items-center h-[300px] bg-[#0e4b90] rounded-sm m-4">
+                                <div class="block text-center">
+                                    <div class="capitalize text-white text-[38px] font-roboto tracking-tight">
+                                        welcome to father saturnino urios university!
+                                    </div>
+                                    <div class="capitalize text-white font-roboto tracking-wide py-3">
+                                        <span class=" text-[28px] tracking-tight">scholarship data management system</span>
+                                    </div>
+                                    <div class="capitalize text-white font-roboto tracking-wide">
+                                        <span class="font-light text-base tracking-tight">designed for transparent scholarship administration</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>

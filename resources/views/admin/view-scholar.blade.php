@@ -268,21 +268,52 @@
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-1 md:grid-cols-5 gap-2 p-2">
-                                    <div class="h-48 w-full border-4 block">
-                                        <img src="{{ asset('storage/images/unknown.png') }}" alt="" class="h-full">
-                                    </div>
-                                    <div class="h-48 w-full border-4"></div>
-                                    <div class="h-48 w-full border-4"></div>
-                                    <div class="h-48 w-full border-4"></div>
-                                    <div class="h-48 w-full border-4"></div>
-                                    <div class="h-48 w-full border-4"></div>
-                                    <div class="h-48 w-full border-4"></div>
-                                    <div class="h-48 w-full border-4"></div>
-                                    <div class="h-48 w-full border-4"></div>
-                                    <div class="h-48 w-full border-4"></div>
-                                    <div class="h-48 w-full border-4"></div>
-                                    <div class="h-48 w-full border-4"></div>
-                                    <div class="h-48 w-full border-4"></div>
+                                    @foreach ($attachments as $attachment)
+                                        <div class="flex">
+                                            <input type="checkbox" name="transcript_of_records" id="transcript_of_records" class="shrink-0 mt-0.5 border-gray-500 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none" id="hs-default-checkbox" {{ $attachment->transcript_of_records ? 'checked' : '' }}>
+                                            <label for="hs-default-checkbox" class="text-sm text-gray-700 ms-3">Transcript of Records</label>
+                                        </div>
+                                        <div class="flex">
+                                            <input type="checkbox" name="certificate_of_enrollment" id="certificate_of_enrollment" class="shrink-0 mt-0.5 border-gray-500 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none" id="hs-default-checkbox" {{ $attachment->certificate_of_enrollment ? 'checked' : '' }}>
+                                            <label for="hs-default-checkbox" class="text-sm text-gray-700 ms-3">Certificate of Enrollment</label>
+                                        </div>
+                                        <div class="flex">
+                                            <input type="checkbox" name="grade_slip" id="grade_slip" class="shrink-0 mt-0.5 border-gray-500 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none" id="hs-default-checkbox" {{ $attachment->grade_slip ? 'checked' : '' }}>
+                                            <label for="hs-default-checkbox" class="text-sm text-gray-700 ms-3">Grade Slip</label>
+                                        </div>
+                                        <div class="flex">
+                                            <input type="checkbox" name="income_tax_return" id="income_tax_return" class="shrink-0 mt-0.5 border-gray-500 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none" id="hs-default-checkbox" {{ $attachment->income_tax_return ? 'checked' : '' }}>
+                                            <label for="hs-default-checkbox" class="text-sm text-gray-700 ms-3">Income Tax Return</label>
+                                        </div>
+                                        <div class="flex">
+                                            <input type="checkbox" name="certificate_of_indegency" id="certificate_of_indegency" class="shrink-0 mt-0.5 border-gray-500 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none" id="hs-default-checkbox" {{ $attachment->certificate_of_indegency ? 'checked' : '' }}>
+                                            <label for="hs-default-checkbox" class="text-sm text-gray-700 ms-3">Cert. Of Indegency</label>
+                                        </div>
+                                        <div class="flex">
+                                            <input type="checkbox" name="statement_of_accounts" id="statement_of_accounts" class="shrink-0 mt-0.5 border-gray-500 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none" id="hs-default-checkbox" {{ $attachment->statement_of_accounts ? 'checked' : '' }}>
+                                            <label for="hs-default-checkbox" class="text-sm text-gray-700 ms-3">Statement Of Account</label>
+                                        </div>
+                                        <div class="flex">
+                                            <input type="checkbox" name="birth_certificate" id="birth_certificate" class="shrink-0 mt-0.5 border-gray-500 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none" id="hs-default-checkbox" {{ $attachment->birth_certificate ? 'checked' : '' }}>
+                                            <label for="hs-default-checkbox" class="text-sm text-gray-700 ms-3">Statement Of Account</label>
+                                        </div>
+                                        <div class="flex">
+                                            <input type="checkbox" name="good_moral" id="good_moral" class="shrink-0 mt-0.5 border-gray-500 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none" id="hs-default-checkbox" {{ $attachment->good_moral ? 'checked' : '' }}>
+                                            <label for="hs-default-checkbox" class="text-sm text-gray-700 ms-3">Good Moral</label>
+                                        </div>
+                                        <div class="flex">
+                                            <input type="checkbox" name="application_form" id="application_form" class="shrink-0 mt-0.5 border-gray-500 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none" id="hs-default-checkbox" {{ $attachment->application_form ? 'checked' : '' }}>
+                                            <label for="hs-default-checkbox" class="text-sm text-gray-700 ms-3">Application Form</label>
+                                        </div>
+                                        <div class="flex">
+                                            <input type="checkbox" name="essay" id="essay" class="shrink-0 mt-0.5 border-gray-500 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none" id="hs-default-checkbox" {{ $attachment->essay ? 'checked' : '' }}>
+                                            <label for="hs-default-checkbox" class="text-sm text-gray-700 ms-3">Essay</label>
+                                        </div>
+                                        <div class="flex">
+                                            <input type="checkbox" name="endorsement" id="endorsement" class="shrink-0 mt-0.5 border-gray-500 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none" id="hs-default-checkbox" {{ $attachment->endorsement ? 'checked' : '' }}>
+                                            <label for="hs-default-checkbox" class="text-sm text-gray-700 ms-3">Endorsement</label>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>

@@ -11,6 +11,7 @@
                             <th scope="col" class="px-4 py-3">Course</th>
                             <th scope="col" class="px-4 py-3">Year Level</th>
                             <th scope="col" class="px-4 py-3">Office Assign</th>
+                            <th scope="col" class="px-4 py-3">Semester</th>
                             <th scope="col" class="px-4 py-3">Status</th>
                         </tr>
                     </thead>
@@ -26,6 +27,7 @@
                                 <td class="px-4 py-3 text-gray-600">{{ $student->course }}</td>
                                 <td class="px-4 py-3 text-gray-600">{{ $student->year_level }}</td>
                                 <td class="px-4 py-3 text-gray-600">{{ $student->department->name }}</td>
+                                <td class="px-4 py-3 text-gray-600">{{ $student->semester }}</td>
                                 <td class="px-4 py-3 text-gray-600 block md:flex gap-x-2">
                                     @if ($student->status == 'not_verified')
                                         <img src="{{ asset('storage/images/remove.png') }}" alt="Not Verified" class="ml-2 h-4 w-4">

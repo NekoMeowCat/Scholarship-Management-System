@@ -20,8 +20,31 @@ class Students extends Model
     ];
 
     protected static $logAttributes = [
-        'name', 'middle_name', 'last_name', 'year_level', 'student_image', 'semester', 'status', 'id_number', 'gender', 'course', 'email',
-        'department_id', 'scholarship_id',
+        'transcript_of_records',
+        'certificate_of_enrollment',
+        'grade_slip',
+        'income_tax_return',
+        'certificate_of_indegency',
+        'statement_of_accounts',
+        'birth_certificate',
+        'good_moral',
+        'valid_id',
+        'application_form',
+        'essay',
+        'endorsement',
+        'name',
+        'middle_name',
+        'last_name',
+        'year_level',
+        'student_image',
+        'semester',
+        'id_number',
+        'status',
+        'gender',
+        'course',
+        'email',
+        'department_id',
+        'scholarship_id',
     ];
 
     public function department()
@@ -39,15 +62,17 @@ class Students extends Model
         return $this->hasOne(ScholarDetails::class, 'student_id', 'id');
     }
 
+    
     public function attachments()
     {
-        return $this->hasMany(Attachments::class);
+        return $this->hasMany(Attachments::class, 'student_id');
     }
 
 
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()
-            ->logOnly(['name', 'middle_name', 'last_name', 'year_level', 'student_image', 'semester', 'id_number', 'status', 'gender', 'course', 'email', 'department_id', 'scholarship_id']);
+            ->logOnly(self::$logAttributes);
     }
+
 }
