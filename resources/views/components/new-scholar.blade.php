@@ -12,7 +12,7 @@
         <form method="POST" action="{{ route('admin.store-scholar') }}" enctype="multipart/form-data">
             @csrf
             <div class="py-6">
-                <h6 class="text-white text-xl mt-3 mb-2 font-bold uppercase">
+                <h6 class="text-black text-xl mt-3 mb-2 font-bold uppercase">
                     Personal Information
                 </h6>
                 <hr class=" border-b-1 border-blueGray-300">            
@@ -23,7 +23,7 @@
                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                             Last Name
                         </label>
-                        <input type="text" name="last_name" id="last_name" class="border-0 px-3 py-3 text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="Luna">
+                        <input type="text" name="last_name" id="last_name" class="border-0 px-3 py-3 placeholder:text-slate-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter LastName">
                     </div>
                 </div>
                 <div class="w-full lg:w-4/12 px-4">
@@ -31,7 +31,7 @@
                     <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                         Middle Name
                     </label>
-                    <input type="text" name="middle_name" id="middle_name" class="border-0 px-3 py-3 text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="Narciso">
+                    <input type="text" name="middle_name" id="middle_name" class="border-0 px-3 py-3 placeholder:text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter MiddleName">
                     </div>
                 </div>
                 <div class="w-full lg:w-4/12 px-4">
@@ -39,7 +39,7 @@
                     <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                         First Name
                     </label>
-                    <input type="text" name="name" id="name" class="border-0 px-3 py-3 text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="Juan">
+                    <input type="text" name="name" id="name" class="border-0 px-3 py-3 placeholder:text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter FirstName">
                     </div>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                             ID Number
                         </label>
-                        <input type="text" name="id_number" id="id_number" class="border-0 px-3 py-3 text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="Male">
+                        <input type="text" name="id_number" id="id_number" class="border-0 px-3 py-3 placeholder:text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter ID Number">
                     </div>
                 </div>
                 <div class="w-full lg:w-4/12 px-4">
@@ -57,7 +57,7 @@
                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                             Year Level
                         </label>
-                        <input type="text" name="year_level" id="year_level" class="border-0 px-3 py-3 text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="Married">
+                        <input type="text" name="year_level" id="year_level" class="border-0 px-3 py-3 placeholder:text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Year Level">
                     </div>
                 </div>
                 <div class="w-full lg:w-4/12 px-4">
@@ -65,17 +65,24 @@
                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" for="email">
                             Gender
                         </label>
-                        <input type="text" name="gender" id="gender" class="border-0 px-3 py-3 text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="generalluna@mailinator.com">
+                        <input type="text" name="gender" id="gender" class="border-0 px-3 py-3 placeholder:text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Specify,.">
                     </div>
                 </div>
             </div>
             <div class="flex flex-wrap">
                 <div class="w-full lg:w-4/12 px-4">
                     <div class="relative w-full mb-6">
-                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
+                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" for="course">
                             Course
                         </label>
-                        <input type="text" name="course" id="course" class="border-0 px-3 py-3 text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="1993-11-11">
+                        <select name="course" id="course" class="border-0 px-3 py-3 placeholder:text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                            <option value="" disabled selected>Select a course</option>
+                            <option value=">Bachelor of Science in Computer Science">Bachelor of Science in Computer Science</option>
+                            <option value="Bachelor of Science in Information Technology">Bachelor of Science in Information Technology</option>
+                            <option value="Bachelor of Science in Civil Engineering">Bachelor of Science in Civil Engineering</option>
+                            <option value="Bachelor of Science in Physics">Bachelor of Science in Physics</option>
+                            <option value="Bachelor of Science in Biology">Bachelor of Science in Biology</option>
+                        </select>
                     </div>
                 </div>
                 <div class="w-full lg:w-4/12 px-4">
@@ -83,7 +90,7 @@
                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                             Email
                         </label>
-                        <input type="email" name="email" id="email" class="border-0 px-3 py-3 text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="+63 895 122 1254">
+                        <input type="email" name="email" id="email" class="border-0 px-3 py-3 placeholder:text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Email">
                     </div>
                 </div>
                 <div class="w-full lg:w-4/12 px-4">
@@ -91,7 +98,7 @@
                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                             Address
                         </label>
-                        <input type="text" name="address" id="address" class="border-0 px-3 py-3 text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="+63 895 122 1254">
+                        <input type="text" name="address" id="address" class="border-0 px-3 py-3 placeholder:text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Address">
                     </div>
                 </div>
             </div>
@@ -101,7 +108,7 @@
                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                             Date of Birth
                         </label>
-                        <input type="date" name="date_of_birth" id="date_of_birth" class="border-0 px-3 py-3 text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="1993-11-11">
+                        <input type="date" name="date_of_birth" id="date_of_birth" class="border-0 px-3 py-3 placeholder:text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="1993-11-11">
                     </div>
                 </div>
                 <div class="w-full lg:w-4/12 px-4">
@@ -109,7 +116,7 @@
                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                             Contact no.
                         </label>
-                        <input type="text" name="phone_number" id="phone_number" class="border-0 px-3 py-3 text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="+63 895 122 1254">
+                        <input type="text" name="phone_number" id="phone_number" class="border-0 px-3 py-3 placeholder:text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Contact No.">
                     </div>
                 </div>
                 <div class="w-full lg:w-4/12 px-4">
@@ -117,8 +124,8 @@
                         <label class="block uppercase text-gray-700 text-xs font-bold mb-2" htmlfor="grid-password">
                             Office Assignment
                         </label>
-                        <select name="department_id" id="department_id" class="w-full py-3 px-4 pe-9 block border-gray-200 text-gray-700 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
-                            <option selected>Select a Department</option>
+                        <select name="department_id" id="department_id" class="w-full py-3 px-4 pe-9 block border-gray-200 text-gray-700 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none" required>
+                            <option value="" selected disabled>Select a Department</option>
                             @foreach($departments as $department)
                                 <option value="{{ $department->id }}">{{ $department->name }}</option>
                             @endforeach
@@ -132,7 +139,7 @@
                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                             Guardian
                         </label>
-                        <input type="text" name="contact_person" id="contact_person" class="border-0 px-3 py-3 text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="1993-11-11">
+                        <input type="text" name="contact_person" id="contact_person" class="border-0 px-3 py-3 placeholder:text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Guardian Name">
                     </div>
                 </div>
                 <div class="w-full lg:w-4/12 px-4">
@@ -140,7 +147,7 @@
                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                             Guardian contact no.
                         </label>
-                        <input type="text" name="contact_person_number" id="contact_person_number" class="border-0 px-3 py-3 text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="+63 895 122 1254">
+                        <input type="text" name="contact_person_number" id="contact_person_number" class="border-0 px-3 py-3 placeholder:text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Guardian No">
                     </div>
                 </div>
                 <div class="w-full lg:w-4/12 px-4">
@@ -148,8 +155,8 @@
                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                             Scholarship Grant
                         </label>
-                        <select name="scholarship_id" id="scholarship_id" class="w-full py-3 px-4 pe-9 block border-gray-200 text-gray-700 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
-                            <option selected>Select a Scholarship</option>
+                        <select name="scholarship_id" id="scholarship_id" class="w-full py-3 px-4 pe-9 block border-gray-200 text-gray-700 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none" required>
+                            <option value="" selected disabled>Select a Scholarship</option>
                             @foreach($scholarships as $scholarship)
                                 <option value="{{ $scholarship->id }}">{{ $scholarship->name }}</option>
                             @endforeach
@@ -164,75 +171,49 @@
                 <hr class=" border-b-2 border-red-300 rounded-sm">            
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-2 mt-4">
-                <div class="block">          
-                    <label class="block mb-2 text-sm font-medium " for="file_input">ID</label>
-                        <input name="student_id" id="student_id" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
-                    <p class="mt-1 text-xs text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
+                <div class="flex">
+                    <input type="checkbox" name="transcript_of_records" id="transcript_of_records" class="shrink-0 mt-0.5 border-gray-500 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-default-checkbox">
+                    <label for="hs-default-checkbox" class="text-sm text-gray-700 ms-3">Transcript of Records</label>
                 </div>
-                <div class="block">          
-                    <label class="block mb-2 text-sm font-medium " for="file_input">Transcript of Records</label>
-                        <input name="transcript_of_records" id="transcript_of_records" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
-                    <p class="mt-1 text-xs text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
+                <div class="flex">
+                    <input type="checkbox" name="certificate_of_enrollment" id="certificate_of_enrollment" class="shrink-0 mt-0.5 border-gray-500 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-default-checkbox">
+                    <label for="hs-default-checkbox" class="text-sm text-gray-700 ms-3">Certificate of Enrollment</label>
                 </div>
-
-                <div class="block">          
-                    <label class="block mb-2 text-sm font-medium " for="file_input">Certificate Of Enrollment</label>
-                        <input name="certificate_of_enrollment" id="certificate_of_enrollment" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
-                    <p class="mt-1 text-xs text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
+                <div class="flex">
+                    <input type="checkbox" name="grade_slip" id="grade_slip" class="shrink-0 mt-0.5 border-gray-500 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-default-checkbox">
+                    <label for="hs-default-checkbox" class="text-sm text-gray-700 ms-3">Grade Slip</label>
                 </div>
-
-                <div class="block">          
-                    <label class="block mb-2 text-sm font-medium " for="file_input">Grade Slip</label>
-                        <input name="grade_slip" id="grade_slip" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
-                    <p class="mt-1 text-xs text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
+                <div class="flex">
+                    <input type="checkbox" name="income_tax_return" id="income_tax_return" class="shrink-0 mt-0.5 border-gray-500 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-default-checkbox">
+                    <label for="hs-default-checkbox" class="text-sm text-gray-700 ms-3">Income Tax Return</label>
                 </div>
-
-                <div class="block">          
-                    <label class="block mb-2 text-sm font-medium " for="file_input">Income Tax Return </label>
-                        <input name="income_tax_return" id="income_tax_return" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
-                    <p class="mt-1 text-xs text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
+                <div class="flex">
+                    <input type="checkbox" name="certificate_of_indegency" id="certificate_of_indegency" class="shrink-0 mt-0.5 border-gray-500 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-default-checkbox">
+                    <label for="hs-default-checkbox" class="text-sm text-gray-700 ms-3">Cert. Of Indegency</label>
                 </div>
-
-                <div class="block">          
-                    <label class="block mb-2 text-sm font-medium " for="file_input">Cert. Of Indegency</label>
-                        <input name="certificate_of_indegency" id="certificate_of_indegency" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
-                    <p class="mt-1 text-xs text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
+                <div class="flex">
+                    <input type="checkbox" name="statement_of_accounts" id="statement_of_accounts" class="shrink-0 mt-0.5 border-gray-500 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-default-checkbox">
+                    <label for="hs-default-checkbox" class="text-sm text-gray-700 ms-3">Statement Of Account</label>
                 </div>
-
-                <div class="block">          
-                    <label class="block mb-2 text-sm font-medium " for="file_input">Statement Of Account</label>
-                        <input name="statement_of_accounts" id="statement_of_accounts" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
-                    <p class="mt-1 text-xs text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
+                <div class="flex">
+                    <input type="checkbox" name="birth_certificate" id="birth_certificate" class="shrink-0 mt-0.5 border-gray-500 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-default-checkbox">
+                    <label for="hs-default-checkbox" class="text-sm text-gray-700 ms-3">Statement Of Account</label>
                 </div>
-
-                <div class="block">          
-                    <label class="block mb-2 text-sm font-medium " for="file_input">Birth Certificate</label>
-                        <input name="birth_certificate" id="birth_certificate" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
-                    <p class="mt-1 text-xs text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
+                <div class="flex">
+                    <input type="checkbox" name="good_moral" id="good_moral" class="shrink-0 mt-0.5 border-gray-500 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-default-checkbox">
+                    <label for="hs-default-checkbox" class="text-sm text-gray-700 ms-3">Good Moral</label>
                 </div>
-
-                <div class="block">          
-                    <label class="block mb-2 text-sm font-medium " for="file_input">Good Moral</label>
-                        <input name="good_moral" id="good_moral" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
-                    <p class="mt-1 text-xs text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
+                <div class="flex">
+                    <input type="checkbox" name="application_form" id="application_form" class="shrink-0 mt-0.5 border-gray-500 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-default-checkbox">
+                    <label for="hs-default-checkbox" class="text-sm text-gray-700 ms-3">Good Moral</label>
                 </div>
-
-                <div class="block">          
-                    <label class="block mb-2 text-sm font-medium " for="file_input">Application Form</label>
-                        <input name="application_form" id="application_form" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
-                    <p class="mt-1 text-xs text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
+                <div class="flex">
+                    <input type="checkbox" name="essay" id="essay" class="shrink-0 mt-0.5 border-gray-500 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-default-checkbox">
+                    <label for="hs-default-checkbox" class="text-sm text-gray-700 ms-3">Good Moral</label>
                 </div>
-
-                <div class="block">          
-                    <label class="block mb-2 text-sm font-medium " for="file_input">Essay</label>
-                        <input name="essay" id="essay" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
-                    <p class="mt-1 text-xs text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
-                </div>
-
-                <div class="block">          
-                    <label class="block mb-2 text-sm font-medium " for="file_input">Endorsement</label>
-                        <input name="endorsement" id="endorsement" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
-                    <p class="mt-1 text-xs text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
+                <div class="flex">
+                    <input type="checkbox" name="endorsement" id="endorsement" class="shrink-0 mt-0.5 border-gray-500 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-default-checkbox">
+                    <label for="hs-default-checkbox" class="text-sm text-gray-700 ms-3">Good Moral</label>
                 </div>
             </div>     
             <div class="flex justify-end items-center gap-x-2 py-3 px-4 border-t-2 border-blue-500 mt-2">

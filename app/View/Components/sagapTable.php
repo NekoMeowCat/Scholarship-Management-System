@@ -15,12 +15,19 @@ class sagapTable extends Component
      */
 
     public $Students; 
+    public $firstSemester;
 
     public function __construct()
     {
         $this->Students = Students::whereHas('scholarship', function ($query) {
             $query->where('name', 'SAGAP');
         })->orderBy('year_level', 'desc')->get();
+
+        $this->firstSemester = Students::where('semester', '1st Semester')
+            ->whereHas('scholarship', function ($query) {
+                $query->where('name', 'SAGAP');
+            })
+            ->get();
     }
 
     /**

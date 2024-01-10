@@ -1,6 +1,3 @@
-
-
-
 <section class="bg-[#f5f5f5]">
     <div class=" ">
         <!-- Start coding here -->
@@ -14,6 +11,7 @@
                             <th scope="col" class="px-4 py-3">Course</th>
                             <th scope="col" class="px-4 py-3">Year Level</th>
                             <th scope="col" class="px-4 py-3">Office Assign</th>
+                            <th scope="col" class="px-4 py-3">Semester</th>
                             <th scope="col" class="px-4 py-3">Status</th>
                         </tr>
                     </thead>
@@ -29,11 +27,12 @@
                                 <td class="px-4 py-3 text-gray-600 font-normal">{{ $student->course }}</td>
                                 <td class="px-4 py-3 text-gray-600 font-normal">{{ $student->year_level }}</td>
                                 <td class="px-4 py-3 text-gray-600 font-normal">{{ $student->department->name }}</td>
+                                <td class="px-4 py-3 text-gray-600 font-normal">{{ $student->semester }}</td>
                                 <td class="px-4 py-3 text-gray-600 font-normal block md:flex gap-x-2">
-                                    @if ($student->status == 'not_verified')
-                                        <img src="{{ asset('storage/images/remove.png') }}" alt="Not Verified" class="ml-2 h-4 w-4">
-                                    @elseif ($student->status == 'verified')
+                                    @if ($student->status == 'verified')
                                         <img src="{{ asset('storage/images/approved.png') }}" alt="Verified" class="ml-2 h-6 w-6">
+                                    @elseif ($student->status == 'not_verified')
+                                        <img src="{{ asset('storage/images/remove.png') }}" alt="Not Verified" class="ml-2 h-4 w-4">
                                     @elseif ($student->status == 'graduated')
                                         <img src="{{ asset('storage/images/cap.png') }}" alt="Verified" class="ml-2 h-6 w-6">
                                     @endif

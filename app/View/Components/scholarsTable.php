@@ -14,7 +14,7 @@ class scholarsTable extends Component
      */
 
     public $students;
-
+    
     public function __construct()
     {
         $this->students = Students::all();
