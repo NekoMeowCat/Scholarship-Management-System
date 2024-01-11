@@ -77,11 +77,37 @@
                         </label>
                         <select name="course" id="course" class="border-0 px-3 py-3 placeholder:text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
                             <option value="" disabled selected>Select a course</option>
-                            <option value=">Bachelor of Science in Computer Science">Bachelor of Science in Computer Science</option>
+                            <option value="Bachelor of Science in Computer Science">Bachelor of Science in Computer Science</option>
                             <option value="Bachelor of Science in Information Technology">Bachelor of Science in Information Technology</option>
                             <option value="Bachelor of Science in Civil Engineering">Bachelor of Science in Civil Engineering</option>
                             <option value="Bachelor of Science in Physics">Bachelor of Science in Physics</option>
                             <option value="Bachelor of Science in Biology">Bachelor of Science in Biology</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="w-full lg:w-4/12 px-4">
+                    <div class="relative w-full mb-6">
+                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" for="course">
+                            Semester
+                        </label>
+                        <select name="semester" id="semester" class="border-0 px-3 py-3 placeholder:text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                            <option value="" disabled selected>Select a Semester</option>
+                            <option value="1st Semester">1st Semester</option>
+                            <option value="2nd Semester">2nd Semester</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="w-full lg:w-4/12 px-4">
+                    <div class="relative w-full mb-6">
+                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" for="course">
+                            School Year
+                        </label>
+                        <select name="school_year" id="school_year" class="border-0 px-3 py-3 placeholder:text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                            <option value="" disabled selected>Select a School Year</option>
+                            <option value="2021-2022">2021-2022</option>
+                            <option value="2022-2023">2022-2023</option>
+                            <option value="2023-2024">2023-2024</option>
+                            <option value="2024-2025">2024-2025</option>
                         </select>
                     </div>
                 </div>

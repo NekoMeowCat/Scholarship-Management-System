@@ -15,8 +15,8 @@ class Students extends Model
     use HasFactory, LogsActivity;
 
     protected $fillable = [
-        'name', 'middle_name', 'last_name', 'year_level', 'student_image', 'semester', 'status', 'id_number', 'gender', 'course', 'email',
-        'department_id', 'scholarship_id',
+        'name', 'middle_name', 'last_name', 'year_level', 'student_image', 'semester', 'school_year', 'status', 'id_number', 'gender', 'course', 'email',
+        'department_id', 'scholarship_id', 'school_year'
     ];
 
     protected static $logAttributes = [
@@ -38,6 +38,7 @@ class Students extends Model
         'year_level',
         'student_image',
         'semester',
+        'school_year',
         'id_number',
         'status',
         'gender',
@@ -66,6 +67,11 @@ class Students extends Model
     public function attachments()
     {
         return $this->hasMany(Attachments::class, 'student_id');
+    }
+
+    public function scopeBySchoolYearAndSemester($query, $schoolYear, $semester)
+    {
+        return $query->where('school_year', $schoolYear)->where('semester', $semester);
     }
 
 

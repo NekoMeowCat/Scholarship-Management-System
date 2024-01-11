@@ -48,13 +48,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/scholarship/fsuu_funded', [ScholarshipController::class, 'fsuuFunded'])->name('fsuu-funded');
     Route::get('/scholarship/private_funded', [ScholarshipController::class, 'privateFunded'])->name('private-funded');
     Route::get('/scholarship/government_funded', [ScholarshipController::class, 'govtFunded'])->name('govt-funded');
+    Route::get('/history/{id}', [StudentsController::class, 'showHistory'])->name('history');
 
 
     
     Route::get('/activity-logs', [StudentsController::class, 'activityLog'])->name('activity-logs');
     // Route::post('/import', [StudentsController::class, 'import'])->name('import');
     // Route::get('/generate-pdf', [PDFController::class, 'generatePrintable'])->name('students.pdf');
-    Route::get('/students', [DownloadController::class, 'index'])->name('download');
+    
 
 });
 
