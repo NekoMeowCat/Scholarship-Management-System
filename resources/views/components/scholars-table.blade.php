@@ -25,8 +25,8 @@
                                     {{ $student->last_name }}    
                                 </th>
                                 <td class="px-4 py-3">{{ $student->id_number }}</td>
-                                <td class="px-4 py-3"> {{ $student->scholarship->name }}</td>
-                                <td class="px-4 py-3">{{ $student->course }}</td>
+                                <td class="px-4 py-3">{{ $student->scholarship->name }}</td>
+                                <td class="px-4 py-3">{{ $student->course }}</td>                              
                                 <td class="px-4 py-3">{{ $student->created_at->format('F j, Y') }}</td>
                                 <td class="px-4 py-3">{{ $student->semester }}</td>
                                 <td class="px-4 py-3">{{ $student->year_level }}</td>

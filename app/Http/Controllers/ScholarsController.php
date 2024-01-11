@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Students;
 
 
 class ScholarsController extends Controller
@@ -51,7 +52,9 @@ class ScholarsController extends Controller
      */
     public function show(string $id)
     {
-        
+        $student = Students::findOrFail($id);
+
+        return view('admin.history', compact('student'));
     }
 
     /**

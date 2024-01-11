@@ -105,6 +105,9 @@
                     <div class="bg-gray-50 my-2 rounded-md shadow-2xl">
                         <div class="flex">
                             <div class="w-full flex bg-gray-50 justify-start lg:justify-end p-4">
+                                <a href="{{ route('history', ['id' => $student->id]) }}" class="bg-blue-500 text-white px-4 py-2 rounded">
+                                    View History
+                                </a>
                                 <select name="status" id="status" class="mr-1 py-3 px-4 pe-9 block text-black border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
                                     <option value="verified" {{ $student->status === 'verified' ? 'selected' : '' }}>Verified</option>
                                     <option value="not_verified" {{ $student->status === 'not_verified' ? 'selected' : '' }}>Not Verified</option>
@@ -180,6 +183,20 @@
                                                 course
                                             </label>
                                             <input type="text" name="course" id="course" class="border-0 px-3 py-3 text-gray-800 font-poppins bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="{{ $student->course }}">
+                                        </div>
+                                    </div>
+                                    <div class="w-full lg:w-4/12 px-4">
+                                        <div class="relative w-full mb-6">
+                                            <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="course">
+                                                School Year
+                                            </label>
+                                            <select name="school_year" id="school_year" class="border-0 px-3 py-3 placeholder:text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                                                <option value="" disabled>Select a School Year</option>
+                                                <option value="2021-2022" {{ $student->school_year == '2021-2022' ? 'selected' : '' }}>2021-2022</option>
+                                                <option value="2022-2023" {{ $student->school_year == '2022-2023' ? 'selected' : '' }}>2022-2023</option>
+                                                <option value="2023-2024" {{ $student->school_year == '2023-2024' ? 'selected' : '' }}>2023-2024</option>
+                                                <option value="2024-2025" {{ $student->school_year == '2024-2025' ? 'selected' : '' }}>2024-2025</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="w-full lg:w-4/12 px-2">
