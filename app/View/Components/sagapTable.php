@@ -14,21 +14,28 @@ class sagapTable extends Component
      * Create a new component instance.
      */
 
-    public $Students; 
-    public $firstSemester;
-
+    public $Students;
+    
     public function __construct()
     {
-        $this->Students = Students::whereHas('scholarship', function ($query) {
-            $query->where('name', 'SAGAP');
-        })->orderBy('year_level', 'desc')->get();
-
-        $this->firstSemester = Students::where('semester', '1st Semester')
-            ->whereHas('scholarship', function ($query) {
-                $query->where('name', 'SAGAP');
-            })
-            ->get();
+        $this->Students = Students::whereIn('id', function ($query) {
+            $query->selectRaw('MAX(id)')
+                ->from('students')
+                ->where('students.scholarship_id', '=', function ($subQuery) {
+                    $subQuery->select('id')
+                                ->from('scholarships')
+                                ->where('name', 'SAGAP');
+                })
+                ->groupBy('id_number');
+        })
+        ->orderBy('year_level', 'desc')
+        ->get()
+        ->map(function ($student) {
+            return $student->fresh();
+        });
     }
+
+
 
     /**
      * Get the view / contents that represent the component.

@@ -6,6 +6,7 @@ use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\ScholarshipController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\HistoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,7 +49,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/scholarship/fsuu_funded', [ScholarshipController::class, 'fsuuFunded'])->name('fsuu-funded');
     Route::get('/scholarship/private_funded', [ScholarshipController::class, 'privateFunded'])->name('private-funded');
     Route::get('/scholarship/government_funded', [ScholarshipController::class, 'govtFunded'])->name('govt-funded');
-    Route::get('/history/{id}', [StudentsController::class, 'showHistory'])->name('history');
+    Route::get('/history', [HistoryController::class, 'index'])->name('history');
+
+    // Route::post('/history', [HistoryController::class, 'search'])->name('search.histories');
 
 
     

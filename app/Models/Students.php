@@ -53,6 +53,11 @@ class Students extends Model
         return $this->belongsTo(Departments::class);
     }
 
+    public function histories()
+    {
+        return $this->hasMany(History::class, 'student_id');
+    }
+    
     public function scholarship()
     {
         return $this->belongsTo(Scholarships::class);

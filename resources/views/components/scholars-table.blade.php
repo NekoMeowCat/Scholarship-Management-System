@@ -13,8 +13,9 @@
                             <th scope="col" class="px-4 py-3">Course</th>
                             <th scope="col" class="px-4 py-3">Date Added</th>
                             <th scope="col" class="px-4 py-3">Semester</th>
-                            <th scope="col" class="px-4 py-3">Year level</th>
+                            <th scope="col" class="px-4 py-3">School Year</th>
                             <th scope="col" class="px-4 py-3">Office Assign</th>
+                            <th scope="col" class="px-4 py-3">Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -29,7 +30,8 @@
                                 <td class="px-4 py-3">{{ $student->course }}</td>                              
                                 <td class="px-4 py-3">{{ $student->created_at->format('F j, Y') }}</td>
                                 <td class="px-4 py-3">{{ $student->semester }}</td>
-                                <td class="px-4 py-3">{{ $student->year_level }}</td>
+                                <td class="px-4 py-3">{{ $student->school_year }}</td>
+                                <td class="px-4 py-3">{{ $student->status }}</td>
                                 <td class="px-4 py-3 block md:flex gap-x-2">{{ $student->department->name }}</td>
                             </tr>
                         @endforeach

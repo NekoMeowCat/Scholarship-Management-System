@@ -75,8 +75,22 @@
                 activity logs
             </span>
         </div>
-        
-
-        
+        <div class="flex flex-col items-center">
+            <div class="hs-tooltip [--placement:right] block">
+                <button type="button" class="hs-tooltip-toggle w-[2.375rem] h-[2.375rem] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 disabled:opacity-50 disabled:pointer-events-none d">
+                    <a href="{{ route('history') }}">
+                        <svg class="w-5 h-5 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m13 19-6-5-6 5V2a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17Z"/>
+                        </svg>
+                    </a>
+                    <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 inline-block absolute invisible z-20 py-1.5 px-2.5 bg-gray-900 text-xs text-white rounded-lg whitespace-nowrap dark:bg-neutral-700" role="tooltip">
+                        History
+                    </span>
+                </button>
+            </div>
+            <span class="text-xs text-gray-100 font-normal capitalize">
+                studen history
+            </span>
+        </div>
     </div>
 </div>

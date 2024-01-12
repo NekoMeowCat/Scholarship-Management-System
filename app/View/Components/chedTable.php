@@ -16,9 +16,21 @@ class chedTable extends Component
 
     public function __construct()
     {
-        $this->students = Students::whereHas('scholarship', function ($query) {
-            $query->where('name', 'CHED');
-        })->orderBy('year_level', 'desc')->get();
+        $this->students = Students::whereIn('id', function ($query) {
+            $query->selectRaw('MAX(id)')
+                ->from('students')
+                ->where('students.scholarship_id', '=', function ($subQuery) {
+                    $subQuery->select('id')
+                                ->from('scholarships')
+                                ->where('name', 'CHED');
+                })
+                ->groupBy('id_number');
+        })
+        ->orderBy('year_level', 'desc')
+        ->get()
+        ->map(function ($student) {
+            return $student->fresh();
+        });
     }
 
     /**

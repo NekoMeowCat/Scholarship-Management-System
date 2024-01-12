@@ -105,9 +105,6 @@
                     <div class="bg-gray-50 my-2 rounded-md shadow-2xl">
                         <div class="flex">
                             <div class="w-full flex bg-gray-50 justify-start lg:justify-end p-4">
-                                <a href="{{ route('history', ['id' => $student->id]) }}" class="bg-blue-500 text-white px-4 py-2 rounded">
-                                    View History
-                                </a>
                                 <select name="status" id="status" class="mr-1 py-3 px-4 pe-9 block text-black border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
                                     <option value="verified" {{ $student->status === 'verified' ? 'selected' : '' }}>Verified</option>
                                     <option value="not_verified" {{ $student->status === 'not_verified' ? 'selected' : '' }}>Not Verified</option>

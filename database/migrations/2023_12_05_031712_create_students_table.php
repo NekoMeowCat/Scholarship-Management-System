@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('id_number');
             $table->string('gender');
             $table->string('course');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->enum('semester', ['1st Semester', '2nd Semester'])->default('1st Semester');
             $table->enum('status', ['verified', 'not_verified', 'graduated'])->default('not_verified');
             $table->foreignId('department_id')->constrained();
