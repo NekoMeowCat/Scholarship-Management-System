@@ -6,10 +6,13 @@ use Illuminate\Http\Request;
 use App\Events\UserActivityEvent;
 use App\Models\Scholarships;
 use App\Models\Students;
+use App\Models\History;
 use App\Models\Departments;
 use App\Models\ScholarDetails;
 use App\Models\Attachments;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log;
+
 
 
 
@@ -166,40 +169,26 @@ class StudentsController extends Controller
         return view('admin.view-scholar', compact('student', 'departments', 'scholarships', 'attachments'));
     }
 
-    public function showHistory(Request $request, string $id)
+    public function showHistory(Request $request)
     {
-        $student = Students::findOrFail($id);
+        $histories = History::all();
 
-        // Retrieve distinct school years and semesters from the database
-        $schoolYears = Students::distinct()->pluck('school_year');
-        $semesters = Students::distinct()->pluck('semester');
-
-        // Retrieve selected school year and semester from the request
-        $selectedSchoolYear = $request->input('school_year', $schoolYears->first());
-        $selectedSemester = $request->input('semester', $semesters->first());
-
-        // Fetch history data based on selected school year and semester
-        $historyData = Students::where('id', $student->id)
-            ->where('school_year', $selectedSchoolYear)
-            ->where('semester', $selectedSemester)
-            ->get(); 
-
-        return view('admin.history', compact('student', 'selectedSchoolYear', 'selectedSemester', 'historyData', 'schoolYears', 'semesters'));
+        return view('admin.history', compact('histories'));
     }
 
 
     private function getHistoryData($student, $selectedSchoolYear, $selectedSemester)
-{
-    // Assuming you have a 'students_history' table with columns 'school_year' and 'semester'
-    // Adjust the table name and column names based on your actual database structure
+    {
+        // Assuming you have a 'students_history' table with columns 'school_year' and 'semester'
+        // Adjust the table name and column names based on your actual database structure
 
-    $historyData = Students::where('id', $student->id)
-        ->where('school_year', $selectedSchoolYear)
-        ->where('semester', $selectedSemester)
-        ->get();
+        $historyData = Students::where('id', $student->id)
+            ->where('school_year', $selectedSchoolYear)
+            ->where('semester', $selectedSemester)
+            ->get();
 
-    return $historyData;
-}
+        return $historyData;
+    }
 
 
     
@@ -238,7 +227,7 @@ class StudentsController extends Controller
                 'phone_number' => 'required|string',
                 'address' => 'required|string',
                 'contact_person' => 'required|string',
-                'contact_person_number' => 'required|string',           
+                'contact_person_number' => 'required|string',          
             ]);
 
             $student = Students::findOrFail($id);
@@ -264,24 +253,58 @@ class StudentsController extends Controller
                 }
             }
 
+            // Check if the semester value has been changed
+            if ($student->semester !== $request->input('semester') || $student->school_year !== $request->input('school_year')) {
+                // Create a new History record for the semester change
+                History::create([
+                    'student_id' => $id,
+                    'attribute' => 'semester',
+                    'old_value' => $student->semester,
+                    'new_value' => $request->input('semester'),
+                    'changed_at' => now(),
+                ]);
 
-            $student->update($request->except('graduated_at'));
-            $student->attachments()->update([
-                'transcript_of_records' => $request->has('transcript_of_records'),
-                'certificate_of_enrollment' => $request->has('certificate_of_enrollment'),
-                'grade_slip' => $request->has('grade_slip'),
-                'income_tax_return' => $request->has('income_tax_return'),
-                'certificate_of_indegency' => $request->has('certificate_of_indegency'),
-                'statement_of_accounts' => $request->has('statement_of_accounts'),
-                'birth_certificate' => $request->has('birth_certificate'),
-                'good_moral' => $request->has('good_moral'),
-                'valid_id' => $request->has('valid_id'),
-                'application_form' => $request->has('application_form'),
-                'essay' => $request->has('essay'),
-                'endorsement' => $request->has('endorsement'),
-            ]);
+                // Create a new History record for the school_year change
+                History::create([
+                    'student_id' => $id,
+                    'attribute' => 'school_year',
+                    'old_value' => $student->school_year,
+                    'new_value' => $request->input('school_year'),
+                    'changed_at' => now(),
+                ]);
 
-            $student->scholarDetails->update(['graduated_at' => $request->graduated_at]);
+                // Create a new student record for the updated semester or school_year
+                $newStudent = $student->replicate();
+                $newStudent->email = null; // Clear the email field
+                $newStudent->semester = $request->input('semester');
+                $newStudent->school_year = $request->input('school_year');
+                $newStudent->status = 'not_verified';
+                $newStudent->save();
+
+                $newStudent->scholarDetails()->create($student->scholarDetails->toArray());
+                $newStudent->attachments()->create($student->attachments->toArray());
+            } else {
+                $student->update($request->except('graduated_at'));
+                $student->attachments()->update([
+                    'transcript_of_records' => $request->has('transcript_of_records'),
+                    'certificate_of_enrollment' => $request->has('certificate_of_enrollment'),
+                    'grade_slip' => $request->has('grade_slip'),
+                    'income_tax_return' => $request->has('income_tax_return'),
+                    'certificate_of_indegency' => $request->has('certificate_of_indegency'),
+                    'statement_of_accounts' => $request->has('statement_of_accounts'),
+                    'birth_certificate' => $request->has('birth_certificate'),
+                    'good_moral' => $request->has('good_moral'),
+                    'valid_id' => $request->has('valid_id'),
+                    'application_form' => $request->has('application_form'),
+                    'essay' => $request->has('essay'),
+                    'endorsement' => $request->has('endorsement'),
+                ]);
+
+                $student->scholarDetails->update(['graduated_at' => $request->graduated_at]);
+            }
+            
+
+            
 
             if (!empty($updatedFields)) {
                 activity('students')
@@ -307,7 +330,6 @@ class StudentsController extends Controller
                     ->log('Updated Attachments', ['created_at' => now()]);
             }
 
-
             return redirect()->route('admin.scholars')->with('success', 'Student updated successfully');
         } catch (\Exception $e) {
             // Log the error for further analysis if needed
@@ -316,6 +338,118 @@ class StudentsController extends Controller
             return redirect()->route('admin.scholars')->with('error', 'Error updating student. Please try again.');
         }
     }
+
+
+    // public function update(Request $request, string $id)
+    // {
+    //     try {
+            
+    //         $request->validate([
+    //             'status' => 'required|in:verified,not_verified,graduated',
+    //             'semester' => 'required|in:1st Semester,2nd Semester',
+    //             'student_image' => 'nullable|file|mimes:jpeg,png,jpg,gif|max:2048',
+    //             'name' => 'required|string',
+    //             'middle_name' => 'string',
+    //             'last_name' => 'required|string',
+    //             'id_number' => 'required|string',
+    //             'year_level' => 'required|string',
+    //             'gender' => 'required|string',
+    //             'course' => 'required|string',
+    //             'school_year' => 'required|string',
+    //             'email' => 'required|email',
+    //             'date_of_birth' => 'required|date',
+    //             'graduated_at' => 'nullable|date',
+    //             'scholarship_id' => 'nullable|exists:scholarships,id',
+    //             'department_id' => 'nullable|exists:departments,id',
+    //             'phone_number' => 'required|string',
+    //             'address' => 'required|string',
+    //             'contact_person' => 'required|string',
+    //             'contact_person_number' => 'required|string',           
+    //         ]);
+
+    //         $student = Students::findOrFail($id);
+
+    //         $checkboxFields = [
+    //             'transcript_of_records', 'certificate_of_enrollment', 'grade_slip',
+    //             'income_tax_return', 'certificate_of_indegency', 'statement_of_accounts',
+    //             'birth_certificate', 'good_moral', 'valid_id', 'application_form',
+    //             'essay', 'endorsement',
+    //         ];
+
+    //         $updatedFields = [];
+
+    //         foreach ($checkboxFields as $field) {
+    //             $oldValue = $student->getOriginal($field);
+    //             $newValue = $request->has($field);
+
+    //             if ($oldValue !== $newValue) {
+    //                 $updatedFields[$field] = [
+    //                     'old' => $oldValue,
+    //                     'new' => $newValue,
+    //                 ];
+    //             }
+    //         }
+
+    //         if ($student->semester !== $request->input('semester')) {
+    //             // Replicate the student
+    //             $clonedStudent = $student->replicate();
+
+    //             // Update the semester value
+    //             $clonedStudent->semester = $request->input('semester');
+
+    //             // Save the cloned student
+    //             $clonedStudent->push();
+    //         }
+    //         $student->update($request->except('graduated_at'));
+
+    //         $student->attachments()->update([
+    //             'transcript_of_records' => $request->has('transcript_of_records'),
+    //             'certificate_of_enrollment' => $request->has('certificate_of_enrollment'),
+    //             'grade_slip' => $request->has('grade_slip'),
+    //             'income_tax_return' => $request->has('income_tax_return'),
+    //             'certificate_of_indegency' => $request->has('certificate_of_indegency'),
+    //             'statement_of_accounts' => $request->has('statement_of_accounts'),
+    //             'birth_certificate' => $request->has('birth_certificate'),
+    //             'good_moral' => $request->has('good_moral'),
+    //             'valid_id' => $request->has('valid_id'),
+    //             'application_form' => $request->has('application_form'),
+    //             'essay' => $request->has('essay'),
+    //             'endorsement' => $request->has('endorsement'),
+    //         ]);
+
+    //         $student->scholarDetails->update(['graduated_at' => $request->graduated_at]);
+
+    //         if (!empty($updatedFields)) {
+    //             activity('students')
+    //                 ->performedOn($student)
+    //                 ->causedBy(auth()->user())
+    //                 ->withProperties(['updated_fields' => $updatedFields])
+    //                 ->log('Updated Student', ['created_at' => now()]);
+
+    //             $attachmentChanges = [];
+
+    //             foreach ($updatedFields as $field => $changes) {
+    //                 if (Str::startsWith($field, 'attachments.')) {
+    //                     $attachmentField = Str::after($field, 'attachments.');
+    //                     $attachmentChanges[$attachmentField] = $changes;
+    //                 }
+    //             }
+
+    //             // Log changes in attachments separately
+    //             activity('attachments')
+    //                 ->performedOn($student->attachments->first()) // Log changes for a single attachment
+    //                 ->causedBy(auth()->user())
+    //                 ->withProperties(['updated_attachments' => $updatedFields]) // Use a different key for attachments
+    //                 ->log('Updated Attachments', ['created_at' => now()]);
+    //         }
+
+    //         return redirect()->route('admin.scholars')->with('success', 'Student updated successfully');
+    //     } catch (\Exception $e) {
+    //         \Log::error('Error updating student: ' . $e->getMessage());
+
+    //         return redirect()->route('admin.scholars')->with('error', 'Error updating student. Please try again.');
+    //     }
+    // }
 
 
 

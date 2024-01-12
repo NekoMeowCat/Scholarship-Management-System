@@ -14,10 +14,22 @@ class scholarsTable extends Component
      */
 
     public $students;
-    
+
     public function __construct()
     {
-        $this->students = Students::orderBy('created_at', 'desc')->get();
+        $this->students = Students::whereIn('id', function ($query) {
+            $query->selectRaw('MAX(id)')
+                ->from('students')
+                ->where('students.scholarship_id', '=', function ($subQuery) {
+                    $subQuery->select('id')
+                                ->from('scholarships')
+                                ->where('name', 'SAGAP');
+                })
+                ->groupBy('id_number');
+        })
+        ->orderBy('year_level', 'desc')
+        ->get()
+        ->fresh(); // Use fresh() to ensure the latest data is fetched
     }
 
     /**
