@@ -275,7 +275,6 @@ class StudentsController extends Controller
 
                 // Create a new student record for the updated semester or school_year
                 $newStudent = $student->replicate();
-                $newStudent->email = null; // Clear the email field
                 $newStudent->semester = $request->input('semester');
                 $newStudent->school_year = $request->input('school_year');
                 $newStudent->status = 'not_verified';
