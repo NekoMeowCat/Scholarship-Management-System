@@ -6,15 +6,15 @@
             <div class="flex space-x-4">
                 <div class="mb-4 w-full">
                     <label for="full_name" class="block text-gray-700 text-sm font-bold mb-2">Full Name:</label>
-                    <input type="text" name="full_name" id="full_name" required
-                        class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    <input type="text" name="full_name" id="full_name" placeholder="Name, Last Name format"
+                        class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline placeholder:text-xs placeholder:text-gray-400"
                         value="{{ old('full_name', $fullName ?? '') }}">
                     <small class="text-red-600">This field is case senstive</small>
                 </div>
 
                 <div class="mb-4">
                     <label for="semester" class="block text-gray-700 text-sm font-bold mb-2">Semester:</label>
-                    <select name="semester" id="semester"
+                    <select name="semester" id="semester" 
                         class="border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                         <option value="" disabled selected>Select Semester</option>
                         <option value="1st Semester" {{ old('semester', $semester ?? '') == '1st Semester' ? 'selected' : '' }}>1st Semester</option>
@@ -25,7 +25,7 @@
 
                 <div class="mb-4">
                     <label for="school_year" class="block text-gray-700 text-sm font-bold mb-2">School Year:</label>
-                    <select name="school_year" id="school_year"
+                    <select name="school_year" id="school_year" 
                             class="border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                         <option value="2021-2022" {{ old('school_year', $schoolYear ?? '') == '2021-2022' ? 'selected' : '' }}>2021-2022</option>
                         <option value="2022-2023" {{ old('school_year', $schoolYear ?? '') == '2022-2023' ? 'selected' : '' }}>2022-2023</option>
