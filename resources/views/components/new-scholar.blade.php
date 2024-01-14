@@ -62,10 +62,15 @@
                 </div>
                 <div class="w-full lg:w-4/12 px-4">
                     <div class="relative w-full mb-6">
-                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" for="email">
+                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" for="course">
                             Gender
                         </label>
-                        <input type="text" name="gender" id="gender" class="border-0 px-3 py-3 placeholder:text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Specify,.">
+                        <select name="gender" id="gender" class="border-0 px-3 py-3 placeholder:text-gray-400 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                            <option value="" disabled selected>Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Others.,">Others.,</option>
+                        </select>
                     </div>
                 </div>
             </div>

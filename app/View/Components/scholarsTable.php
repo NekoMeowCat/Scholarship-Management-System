@@ -20,11 +20,6 @@ class scholarsTable extends Component
         $this->students = Students::whereIn('id', function ($query) {
             $query->selectRaw('MAX(id)')
                 ->from('students')
-                ->where('students.scholarship_id', '=', function ($subQuery) {
-                    $subQuery->select('id')
-                                ->from('scholarships')
-                                ->where('name', 'SAGAP');
-                })
                 ->groupBy('id_number');
         })
         ->orderBy('year_level', 'desc')
